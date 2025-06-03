@@ -1,0 +1,11 @@
+objectCreationExpression oce where
+    and(
+        oce.name match "Integer|Long|Short|Byte|Character|Boolean|Float|Double",
+        not(
+            oce in functionCall where
+                and(
+                    name == "valueOf",
+                    base.name match "Integer|Long|Short|Byte|Character|Boolean|Float|Double"
+                )
+        )
+    );

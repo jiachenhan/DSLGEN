@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.base.name match "(Immutable|ArrayList|HashMap|HashSet|LinkedList|TreeMap|TreeSet).*",
+valuedeclaration_1.type.name match ".*(ImmutableMap|ArrayList|HashMap|HashSet|LinkedList|TreeMap|TreeSet)"
+);

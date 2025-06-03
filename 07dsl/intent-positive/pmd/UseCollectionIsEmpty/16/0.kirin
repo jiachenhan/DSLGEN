@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.condition.rhs.lhs.name == "size",
+ifblock_1.condition.rhs.rhs.value == 0,
+ifblock_1.condition.rhs.operator == ">"
+);

@@ -1,0 +1,8 @@
+functionCall fc where
+    and(
+        fc.base.name == "logger",
+        fc.name == "warn",
+        fc.arguments.size() == 2,
+        fc.arguments[0].value == "Get Schema Partition error",
+        fc.arguments[1].name == "e"
+    );

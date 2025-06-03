@@ -1,0 +1,5 @@
+methodDeclaration md where
+    and(
+        md.containAnnotation("Test"),
+        md.isPublic
+    );

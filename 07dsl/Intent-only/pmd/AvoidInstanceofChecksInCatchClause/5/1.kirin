@@ -1,0 +1,15 @@
+catchClause cc where
+    and(
+        cc.exceptionDeclaration.name == "e",
+        cc.body contain methodCall mc where
+            and(
+                mc.name == "assertTrue",
+                mc.arguments[0] arg where
+                    arg is instanceofExpression where
+                        and(
+                            arg.expression is variableAccess where
+                                arg.expression.name == "e",
+                            arg.type.name == "IORuntimeException"
+                        )
+            )
+    );

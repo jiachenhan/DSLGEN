@@ -1,0 +1,17 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.annotations contain annotation annotation_1 where annotation_1.name == "Test",
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.name == "path",
+valuedeclaration_1.initializer.value == "/tmp/xls",
+valuedeclaration_1.type.name match ".*String"
+)),
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name == "Assertions",
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.name == "exists",
+alias_1.base.name == "file"
+),
+functioncall_1.name == "assertFalse"
+))
+);

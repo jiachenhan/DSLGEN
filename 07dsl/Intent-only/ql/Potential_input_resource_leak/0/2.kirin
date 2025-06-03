@@ -1,0 +1,11 @@
+methodDeclaration md where
+    and(
+        md.name == "createFile",
+        md.contain objectCreationExpression oce where
+            and(
+                oce.name == "BufferedInputStream",
+                not(
+                    oce in tryStatement
+                )
+            )
+    );

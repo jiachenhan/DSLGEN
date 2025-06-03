@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain catchBlock catchblock_1 where not(catchblock_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.base.name == "Thread",
+functioncall_1.base.name == "currentThread",
+functioncall_1.name == "interrupt"
+));

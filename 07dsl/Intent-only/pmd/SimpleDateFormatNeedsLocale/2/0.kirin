@@ -1,0 +1,8 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "SimpleDateFormat",
+        oce.arguments.size() == 1,
+        not(
+            oce.arguments[0].type.name == "java.util.Locale"
+        )
+    );

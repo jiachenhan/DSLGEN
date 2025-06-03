@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.arguments contain alias_1 where and(
+alias_1 is objectCreationExpression,
+alias_1.type.name match ".*InputStreamReader"
+),
+valuedeclaration_1.initializer.type.name match ".*BufferedReader",
+valuedeclaration_1.type.name match ".*(?i)(BufferedReader|FileReader|InputStreamReader)|.*Reader"
+);

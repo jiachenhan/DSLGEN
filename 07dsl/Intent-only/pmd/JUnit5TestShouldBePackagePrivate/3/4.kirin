@@ -1,0 +1,5 @@
+methodDeclaration md where
+    and(
+        md.annotations contain annotation where annotation.name == "Test",
+        md.visibility == "public"
+    );

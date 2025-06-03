@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.exceptionTypes contain alias_1 where alias_1.name match ".*.*Exception",
+functiondeclaration_1.name match "^test[A-Za-z0-9_]*$",
+not(functiondeclaration_1 contain annotation annotation_1 where annotation_1.name == "Test")
+);

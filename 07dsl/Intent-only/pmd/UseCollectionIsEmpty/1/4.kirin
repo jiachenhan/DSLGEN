@@ -1,0 +1,31 @@
+functionCall fc where
+    and(
+        fc.name == "size",
+        fc.enclosingFunction contain ifStatement ifs where
+            or(
+                ifs.condition contain binaryExpression be where
+                    and(
+                        be.leftOperand is fc,
+                        or(
+                            be.operator == "==",
+                            be.operator == "!=",
+                            be.operator == ">",
+                            be.operator == "<"
+                        ),
+                        be.rightOperand is numericLiteral where
+                            value == 0
+                    ),
+                ifs.condition contain binaryExpression be where
+                    and(
+                        be.rightOperand is fc,
+                        or(
+                            be.operator == "==",
+                            be.operator == "!=",
+                            be.operator == ">",
+                            be.operator == "<"
+                        ),
+                        be.leftOperand is numericLiteral where
+                            value == 0
+                    )
+            )
+    );

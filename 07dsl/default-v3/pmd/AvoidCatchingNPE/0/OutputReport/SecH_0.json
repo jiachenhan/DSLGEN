@@ -1,0 +1,18 @@
+{
+  "RuleSet": {
+    "rules": {
+      "dslRule": [
+        {
+          "language": "java",
+          "id": "0100E9B9-B899-4F8B-997A-5C83660DE929",
+          "checker": "SecH_0",
+          "checkerId": "33d7052fbac4410198365b324d4db13a",
+          "dsl": "functionDeclaration functiondeclaration_1 where\n\tand(\n\t\tfunctiondeclaration_1.body contain exceptionBlock exceptionblock_1 where\n\t\t\texceptionblock_1.catchBlocks contain catchBlock catchblock_1 where\n\t\t\t\tcatchblock_1.parameters contain alias_1 where\n\t\t\t\t\tand(\n\t\t\t\t\t\talias_1 is valueDeclaration,\n\t\t\t\t\t\talias_1.type.name match \".*NullPointerException\"\n\t\t\t\t\t),\n\t\tnot(\n\t\t\tfunctiondeclaration_1.body contain functionCall functioncall_1 where\n\t\t\t\tfunctioncall_1.base.name == \"Assertions\"\n\t\t)\n\t);\n",
+          "description": "规则描述信息，需用户修改",
+          "category": "质量问题",
+          "subCategory": "质量问题"
+        }
+      ]
+    }
+  }
+}

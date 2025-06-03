@@ -1,0 +1,5 @@
+fieldAssignment fa where
+    and(
+        fa.value == null,
+        fa.field is fieldDeclaration
+    );

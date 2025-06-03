@@ -1,0 +1,35 @@
+methodCall mc where
+    and(
+        mc.name == "size",
+        mc.parent is ifStatement where
+            or(
+                mc.parent.condition contains binaryExpression where
+                    and(
+                        binaryExpression.leftOperand is mc,
+                        binaryExpression.operator == "==",
+                        binaryExpression.rightOperand is literal where
+                            literal.value == "0"
+                    ),
+                mc.parent.condition contains binaryExpression where
+                    and(
+                        binaryExpression.leftOperand is mc,
+                        binaryExpression.operator == "!=",
+                        binaryExpression.rightOperand is literal where
+                            literal.value == "0"
+                    ),
+                mc.parent.condition contains binaryExpression where
+                    and(
+                        binaryExpression.leftOperand is mc,
+                        binaryExpression.operator == ">",
+                        binaryExpression.rightOperand is literal where
+                            literal.value == "0"
+                    ),
+                mc.parent.condition contains binaryExpression where
+                    and(
+                        binaryExpression.leftOperand is mc,
+                        binaryExpression.operator == "<",
+                        binaryExpression.rightOperand is literal where
+                            literal.value == "1"
+                    )
+            )
+    );

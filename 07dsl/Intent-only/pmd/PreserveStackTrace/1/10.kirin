@@ -1,0 +1,10 @@
+tryCatchBlock tc where
+    tc.contain throwStatement ts where
+        and(
+            ts.expression is functionCall fc where
+                fc.name == "shouldNotReachHere",
+            not(fc.arguments contain arg where
+                arg is VariableAccess va where
+                    va.name == "e"
+            )
+        );

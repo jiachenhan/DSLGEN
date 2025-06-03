@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where and(
+catchblock_1.parameters contain alias_1 where alias_1 is valueDeclaration,
+not(catchblock_1.body contain ifBlock ifblock_1)
+);

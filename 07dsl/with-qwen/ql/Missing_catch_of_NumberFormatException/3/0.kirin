@@ -1,0 +1,46 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.name match "(parseInt|parseLong|parseDouble|parse.*)",
+not(functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.condition.rhs.value == 0,
+ifblock_1.thenBlock contain throwStatement throwstatement_1 where and(
+throwstatement_1.operand.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == "Invalid value for size of literal string"
+),
+throwstatement_1.operand.type.name match ".*ImapResponseParserException"
+),
+ifblock_1.condition.lhs.name == "size",
+ifblock_1.condition.operator == "<"
+)),
+not(functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where and(
+catchblock_1.body contain throwStatement throwstatement_2 where and(
+throwstatement_2.operand.type.name match ".*ImapResponseParserException",
+throwstatement_2.operand.arguments contain alias_5 where alias_5.name == "e",
+throwstatement_2.operand.arguments contain alias_6 where and(
+alias_6 is literal,
+alias_6.value == "Invalid value for size of literal string"
+)
+),
+catchblock_1.parameters contain alias_3 where and(
+alias_3 is valueDeclaration,
+alias_3.type.name match ".*NumberFormatException",
+alias_3.name == "e"
+)
+),
+exceptionblock_1.tryBlock contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.rhs.arguments contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.name == "readStringUntil",
+alias_2.arguments contain alias_4 where and(
+alias_4 is literal,
+alias_4.value == "}"
+)
+),
+binaryoperation_1.operator == "=",
+binaryoperation_1.rhs.name == "parseInt",
+binaryoperation_1.lhs.name match "(?i).*size$",
+binaryoperation_1.rhs.base.name == "Integer"
+)
+))
+);

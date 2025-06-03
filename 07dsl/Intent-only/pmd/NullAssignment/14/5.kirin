@@ -1,0 +1,12 @@
+assignStatement as where
+    and(
+        as.rhs == null,
+        not(
+            as.lhs is VariableAccess where
+                or(
+                    as.lhs.name == "mapType_",
+                    as.lhs.name == "messageType_",
+                    as.lhs.name == "messageListType_"
+                )
+        )
+    );

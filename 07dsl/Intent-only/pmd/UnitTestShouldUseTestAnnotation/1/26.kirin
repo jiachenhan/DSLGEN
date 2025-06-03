@@ -1,0 +1,17 @@
+functionDeclaration fd where
+    and(
+        fd.name startWith "test",
+        fd.isPublic,
+        fd.parameters.size() == 0,
+        fd.throwsExceptions,
+        not(
+            fd.annotations contain annotation where
+                or(
+                    annotation.name == "Test",
+                    annotation.name == "RepeatedTest",
+                    annotation.name == "TestFactory",
+                    annotation.name == "TestTemplate",
+                    annotation.name == "ParameterizedTest"
+                )
+        )
+    );

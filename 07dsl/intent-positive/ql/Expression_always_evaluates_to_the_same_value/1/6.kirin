@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.rhs.operator == "++",
+binaryoperation_1.rhs.operand.name match "(?i).*(size|index|row|count)$"
+);

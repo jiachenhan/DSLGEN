@@ -1,0 +1,13 @@
+expressionStatement es where
+    es.expression contain binaryExpression be where
+        and(
+            be.operator == "==" or be.operator == "!=" or be.operator == ">" or be.operator == "<",
+            be.leftOperand is functionCall fc where
+                and(
+                    fc.name == "size",
+                    fc.base is VariableAccess va where
+                        va.type.name == "java.util.Collection"
+                ),
+            be.rightOperand is Literal l where
+                l.value == "0" or l.value == "1"
+        );

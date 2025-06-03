@@ -1,0 +1,5 @@
+functionDeclaration fd where
+    and(
+        fd.isSynchronized == true,
+        fd.contain synchronizedBlock == false
+    );

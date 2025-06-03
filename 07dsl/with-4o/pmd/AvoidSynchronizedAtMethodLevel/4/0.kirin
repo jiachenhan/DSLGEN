@@ -1,0 +1,123 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.isSynchronized,
+not(functiondeclaration_1.body contain synchronizedBlock synchronizedblock_1 where and(
+synchronizedblock_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain functionCall functioncall_1 where and(
+functioncall_1.name == "debug",
+functioncall_1.base.name == "LOGGER",
+functioncall_1.arguments contain alias_7 where alias_7.name == "polledEvent",
+functioncall_1.arguments contain alias_10 where and(
+alias_10 is literal,
+alias_10.value == "Polled event {} from retry queue."
+)
+),
+ifblock_1.condition.lhs.lhs.name == "polledEvent",
+ifblock_1.condition.lhs.operator == "!=",
+ifblock_1.condition.rhs.base.name == "LOGGER",
+ifblock_1.condition.rhs.name == "isDebugEnabled",
+ifblock_1.condition.operator == "&&"
+),
+synchronizedblock_1.body contain ifBlock ifblock_2 where and(
+ifblock_2.thenBlock contain functionCall functioncall_2 where and(
+functioncall_2.base.name == "retryConnector",
+functioncall_2.arguments contain alias_1 where and(
+alias_1 is castExpression,
+alias_1.castType.name match ".*PipeInsertNodeTabletInsertionEvent",
+alias_1.operand.name == "peekedEvent"
+),
+functioncall_2.name == "transfer"
+),
+ifblock_2.elseBlock contain ifBlock ifblock_6 where and(
+ifblock_6.thenBlock contain functionCall functioncall_4 where and(
+functioncall_4.base.name == "retryConnector",
+functioncall_4.arguments contain alias_2 where and(
+alias_2 is castExpression,
+alias_2.operand.name == "peekedEvent",
+alias_2.castType.name match ".*PipeRawTabletInsertionEvent"
+),
+functioncall_4.name == "transfer"
+),
+ifblock_6.elseBlock contain ifBlock ifblock_7 where and(
+ifblock_7.thenBlock contain functionCall functioncall_6 where and(
+functioncall_6.name == "transfer",
+functioncall_6.arguments contain alias_5 where and(
+alias_5 is castExpression,
+alias_5.operand.name == "peekedEvent",
+alias_5.castType.name match ".*PipeTsFileInsertionEvent"
+),
+functioncall_6.base.name == "retryConnector"
+),
+ifblock_7.condition.lhs.name == "peekedEvent",
+ifblock_7.elseBlock contain functionCall functioncall_7 where and(
+functioncall_7.base.name == "LOGGER",
+functioncall_7.arguments contain alias_4 where and(
+alias_4 is literal,
+alias_4.value == "IoTDBThriftAsyncConnector does not support transfer generic event: {}."
+),
+functioncall_7.arguments contain alias_8 where alias_8.name == "peekedEvent",
+functioncall_7.name == "warn"
+),
+ifblock_7.condition.rhs.name match ".*PipeTsFileInsertionEvent"
+),
+ifblock_6.condition.lhs.name == "peekedEvent",
+ifblock_6.condition.rhs.name match ".*PipeRawTabletInsertionEvent"
+),
+ifblock_2.condition.rhs.name match ".*PipeInsertNodeTabletInsertionEvent",
+ifblock_2.condition.lhs.name == "peekedEvent"
+),
+synchronizedblock_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.name == "polledEvent",
+valuedeclaration_1.initializer.name == "poll",
+valuedeclaration_1.initializer.base.name == "retryEventQueue",
+valuedeclaration_1.type.name match ".*Event"
+),
+synchronizedblock_1.body contain ifBlock ifblock_3 where and(
+ifblock_3.condition.lhs.name == "get",
+ifblock_3.condition.lhs.base.name == "isClosed",
+ifblock_3.thenBlock contain returnStatement returnstatement_1,
+ifblock_3.condition.rhs.base.name == "retryEventQueue",
+ifblock_3.condition.rhs.name == "isEmpty",
+ifblock_3.condition.operator == "||"
+),
+synchronizedblock_1.body contain ifBlock ifblock_4 where and(
+ifblock_4.thenBlock contain functionCall functioncall_3 where and(
+functioncall_3.base.name == "LOGGER",
+functioncall_3.arguments contain alias_3 where alias_3.name == "peekedEvent",
+functioncall_3.name == "error",
+functioncall_3.arguments contain alias_6 where alias_6.name == "polledEvent",
+functioncall_3.arguments contain alias_11 where and(
+alias_11 is binaryOperation,
+alias_11.operator == "+",
+alias_11.rhs.value == "Peeked event: {}, polled event: {}.",
+alias_11.lhs.value == "The event polled from the queue is not the same as the event peeked from the queue. "
+)
+),
+ifblock_4.condition.rhs.name == "peekedEvent",
+ifblock_4.condition.lhs.name == "polledEvent",
+ifblock_4.condition.operator == "!="
+),
+synchronizedblock_1.body contain ifBlock ifblock_5 where and(
+ifblock_5.condition.rhs.name match ".*EnrichedEvent",
+ifblock_5.thenBlock contain functionCall functioncall_5 where and(
+functioncall_5.arguments contain alias_9 where and(
+alias_9 is functionCall,
+alias_9.name == "getName"
+),
+functioncall_5.base.castType.name match ".*EnrichedEvent",
+functioncall_5.arguments contain alias_12 where and(
+alias_12 is literal,
+alias_12.value == true
+),
+functioncall_5.base.operand.name == "peekedEvent",
+functioncall_5.name == "decreaseReferenceCount"
+),
+ifblock_5.condition.lhs.name == "peekedEvent"
+),
+synchronizedblock_1.body contain valueDeclaration valuedeclaration_2 where and(
+valuedeclaration_2.initializer.base.name == "retryEventQueue",
+valuedeclaration_2.name == "peekedEvent",
+valuedeclaration_2.initializer.name == "peek",
+valuedeclaration_2.type.name match ".*Event"
+)
+))
+);

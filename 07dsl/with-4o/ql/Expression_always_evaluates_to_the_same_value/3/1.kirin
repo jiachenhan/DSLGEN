@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain castExpression castexpression_1 where and(
+castexpression_1.operand.name match "(?i).*\.rowSize$",
+not(castexpression_1 contain functionCall functioncall_1)
+);

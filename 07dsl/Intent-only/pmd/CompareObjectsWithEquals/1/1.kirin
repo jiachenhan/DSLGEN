@@ -1,0 +1,17 @@
+methodInvocation mi where
+    and(
+        mi.base.name == "Assert",
+        or(
+            mi.name == "assertTrue",
+            mi.name == "assertFalse"
+        ),
+        mi.arguments[0] arg where
+            arg is stringLiteral,
+        mi.arguments[1] arg where
+            arg is binaryExpression where
+                and(
+                    arg.operator == "==",
+                    arg.left is variableAccess,
+                    arg.right is variableAccess
+                )
+    );

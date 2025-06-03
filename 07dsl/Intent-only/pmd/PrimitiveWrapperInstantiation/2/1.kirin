@@ -1,0 +1,11 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "Float",
+        not(
+            oce in functionCall where
+                and(
+                    base.name == "Float",
+                    name == "valueOf"
+                )
+        )
+    );

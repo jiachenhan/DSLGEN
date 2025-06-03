@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.base.name == "Integer",
+valuedeclaration_1.initializer.name == "parseInt"
+),
+not(functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where exceptionblock_1.tryBlock contain binaryOperation binaryoperation_1)
+);

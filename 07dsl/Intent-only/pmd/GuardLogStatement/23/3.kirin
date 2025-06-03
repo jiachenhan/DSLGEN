@@ -1,0 +1,17 @@
+functionCall fc where
+    and(
+        fc.base.name match "log.*",
+        fc.enclosingFunction ef where
+            not(
+                ef contain ifStatement ifs where
+                    and(
+                        ifs.condition is functionCall ifc where
+                            and(
+                                ifc.base.name match "log.*",
+                                ifc.name startWith "is",
+                                ifc.name endWith "Enabled"
+                            ),
+                        ifs.thenBlock contain fc
+                    )
+            )
+    );

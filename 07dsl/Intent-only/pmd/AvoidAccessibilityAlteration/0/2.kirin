@@ -1,0 +1,6 @@
+methodCall mc where
+    and(
+        mc.name == "setAccessible",
+        mc.base is method,
+        mc.arguments[0] == true
+    );

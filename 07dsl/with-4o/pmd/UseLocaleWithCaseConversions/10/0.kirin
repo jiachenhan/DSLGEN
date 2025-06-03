@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.name == "toLowerCase"
+);

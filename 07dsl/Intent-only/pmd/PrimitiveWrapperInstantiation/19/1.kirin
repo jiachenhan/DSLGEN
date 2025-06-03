@@ -1,0 +1,11 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "Long",
+        not(
+            oce in functionCall where
+                and(
+                    name == "valueOf",
+                    base.name == "Long"
+                )
+        )
+    );

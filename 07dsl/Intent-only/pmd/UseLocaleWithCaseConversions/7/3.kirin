@@ -1,0 +1,8 @@
+functionCall fc where
+    and(
+        or(fc.name == "toUpperCase", fc.name == "toLowerCase"),
+        not(
+            fc.arguments contain arg where
+                arg.type.name == "java.util.Locale"
+        )
+    );

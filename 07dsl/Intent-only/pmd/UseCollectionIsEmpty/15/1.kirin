@@ -1,0 +1,29 @@
+// Rule to detect usage of size() == 0, size() != 0, size() > 0, or size() < 1 instead of isEmpty()
+functionCall fc where
+    and(
+        fc.name == "size",
+        fc in ifStatement,
+        fc.parent is binaryExpression where
+            or(
+                and(
+                    binaryExpression.operator == "==",
+                    binaryExpression.right is numericConstant where
+                        numericConstant.value == 0
+                ),
+                and(
+                    binaryExpression.operator == "!=",
+                    binaryExpression.right is numericConstant where
+                        numericConstant.value == 0
+                ),
+                and(
+                    binaryExpression.operator == ">",
+                    binaryExpression.right is numericConstant where
+                        numericConstant.value == 0
+                ),
+                and(
+                    binaryExpression.operator == "<",
+                    binaryExpression.right is numericConstant where
+                        numericConstant.value == 1
+                )
+            )
+    );

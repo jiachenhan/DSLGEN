@@ -1,0 +1,2 @@
+assignStatement as where
+    as.rhs == null;

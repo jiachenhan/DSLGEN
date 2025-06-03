@@ -1,0 +1,18 @@
+tryStatement ts where
+    ts.resources contain resource where
+        and(
+            resource is objectCreationExpression,
+            resource.name == "BufferedReader"
+        ),
+    ts.block contain variableDeclarationStatement vds where
+        and(
+            vds.declarations contain declaration where
+                declaration.name == "reader",
+            not(
+                ts.resources contain resource where
+                    and(
+                        resource is variableAccess,
+                        resource.name == "reader"
+                    )
+            )
+        );

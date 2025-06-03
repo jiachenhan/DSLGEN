@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain caseStatement casestatement_1 where casestatement_1.caseExpression.name match "(?i)^([a-z]*_)?doris$",
+functiondeclaration_1.body contain caseStatement casestatement_2 where casestatement_2.caseExpression.name match "(?i).*(engine_mysql|ds_mysql|db_mysql)$",
+functiondeclaration_1.body contain caseStatement casestatement_3 where casestatement_3.caseExpression.name match "(?i).*(doris)$",
+functiondeclaration_1.body contain caseStatement casestatement_4 where casestatement_4.caseExpression.name == "TiDB",
+functiondeclaration_1.body contain caseStatement casestatement_5 where casestatement_5.caseExpression.name match "(?i).*(engine[_]?doris)$"
+);

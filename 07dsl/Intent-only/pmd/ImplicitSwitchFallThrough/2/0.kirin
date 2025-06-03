@@ -1,0 +1,5 @@
+switchCase sc where
+    sc.enclosingSwitchStatement ss where
+        ss.contain(sc) and
+        sc contain breakStatement == null and
+        sc.nextSibling is switchCase;

@@ -1,0 +1,11 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == false
+),
+functioncall_1.arguments contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == true
+),
+functioncall_1.name == "assertTrue"
+);

@@ -1,0 +1,31 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where and(
+objectcreationexpression_1.type.name match ".*(Long|Integer|Double|Boolean|Byte|Short|Float|Character)",
+objectcreationexpression_1.arguments contain alias_5 where and(
+alias_5 is literal,
+alias_5.value == 4
+)
+),
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_2 where and(
+objectcreationexpression_2.type.name match ".*(Long|Integer|Double|Boolean|Byte|Short|Float|Character)",
+objectcreationexpression_2.arguments contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == 5
+)
+),
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_3 where and(
+objectcreationexpression_3.type.name match ".*(Long|Integer|Double|Boolean|Byte|Short|Float|Character)",
+objectcreationexpression_3.arguments contain alias_4 where and(
+alias_4 is literal,
+alias_4.value == 8
+)
+),
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.arguments contain alias_1 where and(
+alias_1 is objectCreationExpression,
+alias_1.type.name match ".*(Long|Integer|Double|Boolean|Byte|Short|Float|Character)",
+alias_1.arguments contain alias_3 where and(
+alias_3 is literal,
+alias_3.value == 7
+)
+)
+);

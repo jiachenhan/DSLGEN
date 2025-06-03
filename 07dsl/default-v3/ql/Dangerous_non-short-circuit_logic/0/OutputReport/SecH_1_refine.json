@@ -1,0 +1,18 @@
+{
+  "RuleSet": {
+    "rules": {
+      "dslRule": [
+        {
+          "language": "java",
+          "id": "534F08BD-53C9-4E61-9B2B-F38F0F342BEC",
+          "checker": "SecH_1_refine",
+          "checkerId": "3d98d041ae03461889b2ac79ee262c86",
+          "dsl": "functionDeclaration functiondeclaration_1 where\n\tfunctiondeclaration_1.body contain binaryOperation binaryoperation_1 where\n\t\tand(\n\t\t\tbinaryoperation_1.operator match \"(\\|)|(&)\",\n\t\t\tnot(\n\t\t\t\tbinaryoperation_1 contain binaryOperation binaryoperation_2 where\n\t\t\t\t\tand(\n\t\t\t\t\t\tbinaryoperation_2.lhs.name == \"getTableTokenIfExists\",\n\t\t\t\t\t\tbinaryoperation_2.lhs.arguments contain alias_1 where\n\t\t\t\t\t\t\tand(\n\t\t\t\t\t\t\t\talias_1 is functionCall,\n\t\t\t\t\t\t\t\talias_1.base.name == \"tableToken\",\n\t\t\t\t\t\t\t\talias_1.name == \"getTableName\"\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\tbinaryoperation_2.lhs.base.name == \"engine\",\n\t\t\t\t\t\tbinaryoperation_2.operator == \"==\"\n\t\t\t\t\t)\n\t\t\t)\n\t\t);\n",
+          "description": "规则描述信息，需用户修改",
+          "category": "质量问题",
+          "subCategory": "质量问题"
+        }
+      ]
+    }
+  }
+}

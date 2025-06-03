@@ -1,0 +1,17 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*(?i)(Integer|Long|Short|Byte|Double|Float|Boolean)",
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_2 where objectcreationexpression_2.type.name match ".*(?i)(Integer|Long|Short|Byte|Float|Double|Boolean|Character)",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*(?i).*(Integer|Long|Short|Byte|Boolean|Character|Float|Double)",
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*(?i)(Integer|Long|Short|Byte|Float|Double|Boolean)"),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_3 where valuedeclaration_3.type.name match ".*Integer"),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_4 where and(
+valuedeclaration_4.name == "three",
+valuedeclaration_4.initializer.base.name == "Integer",
+valuedeclaration_4.type.name match ".*Integer",
+valuedeclaration_4.initializer.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == 3
+),
+valuedeclaration_4.initializer.name == "valueOf"
+))
+);

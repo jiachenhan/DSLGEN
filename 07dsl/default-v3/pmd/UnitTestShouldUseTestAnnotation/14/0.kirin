@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.name match "(?i).*test.*",
+not(functiondeclaration_1 contain annotation annotation_1 where annotation_1.name == "Test")
+);

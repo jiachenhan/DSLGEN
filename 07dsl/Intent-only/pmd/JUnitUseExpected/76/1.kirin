@@ -1,0 +1,8 @@
+functionDeclaration fd where
+    and(
+        fd.contain tryStatement ts where
+            ts.contain catchClause cc where
+                cc.parameter.type.name == "IllegalArgumentException",
+        not(fd.contain functionCall fc where
+            fc.name == "assertThrows")
+    );

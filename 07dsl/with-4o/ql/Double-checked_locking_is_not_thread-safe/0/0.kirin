@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain ifBlock ifblock_1 where ifblock_1.condition.lhs.name match "(?i).*(Env)$",
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where binaryoperation_1.lhs.name match "(?i).*(Env)$",
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.name match "(?i).*env")
+);

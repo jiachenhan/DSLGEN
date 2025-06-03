@@ -1,0 +1,18 @@
+{
+  "RuleSet": {
+    "rules": {
+      "dslRule": [
+        {
+          "language": "java",
+          "id": "A0848AAF-245E-45E6-B990-0AD358C6D890",
+          "checker": "SecH_0 copy",
+          "checkerId": "1d25ab38d81942b1b40d10df146fba1d",
+          "dsl": "functionDeclaration functiondeclaration_1 where\r\n\tfunctiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where\r\n\t\tobjectcreationexpression_1.type.name match \"java.lang.(Integer|Double|Boolean|Long|Short|Byte|Character)\";\r\n",
+          "description": "规则描述信息，需用户修改",
+          "category": "质量问题",
+          "subCategory": "质量问题"
+        }
+      ]
+    }
+  }
+}

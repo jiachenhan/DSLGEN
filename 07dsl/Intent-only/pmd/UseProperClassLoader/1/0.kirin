@@ -1,0 +1,9 @@
+functionCall fc where
+    and(
+        fc.name == "getResourceAsStream",
+        fc.base is functionCall where
+            and(
+                fc.base.name == "getClassLoader",
+                fc.base.base is classReference
+            )
+    );

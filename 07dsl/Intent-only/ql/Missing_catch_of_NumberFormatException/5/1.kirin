@@ -1,0 +1,9 @@
+functionCall fc where
+    and(
+        fc.name == "parseInt",
+        not(
+            fc.enclosingFunction contain tryStatement ts where
+                ts.catchClauses contain catchClause cc where
+                    cc.catchType.name == "NumberFormatException"
+        )
+    );

@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.type.name match "void",
+functiondeclaration_1.isPublic,
+functiondeclaration_1.name match "(?i).*test.*"
+);

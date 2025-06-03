@@ -1,0 +1,6 @@
+objectCreationExpression oce where
+    and(
+        oce.name match "Integer|Long|Short|Byte|Float|Double|Character|Boolean",
+        oce in methodCall mc where
+            mc.name == "remove"
+    );

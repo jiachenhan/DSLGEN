@@ -1,0 +1,1 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain returnStatement returnstatement_1 where returnstatement_1.returnValue.type.name match ".*(?i).*(Long|Integer|Short|Byte|Float|Double|Boolean|Character)$";

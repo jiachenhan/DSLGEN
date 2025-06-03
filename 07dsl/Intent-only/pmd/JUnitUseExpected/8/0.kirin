@@ -1,0 +1,13 @@
+methodDeclaration md where
+    and(
+        md.contain tryStatement ts where
+            ts.contain catchBlock cb where
+                cb.parameter.type.name == "IllegalArgumentException",
+        not(
+            md.contain functionCall fc where
+                and(
+                    fc.name == "assertThrows",
+                    fc.arguments[1].type.name == "IllegalArgumentException"
+                )
+        )
+    );

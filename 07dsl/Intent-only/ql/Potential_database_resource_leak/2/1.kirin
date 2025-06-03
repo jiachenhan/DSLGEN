@@ -1,0 +1,25 @@
+// Rule to detect potential database resource leaks
+functionDeclaration fd where
+    and(
+        fd.contain(variableDeclaration vd where
+            and(
+                vd.type.name == "Connection",
+                vd.initializer is objectCreationExpression
+            )
+        ),
+        fd.contain(variableDeclaration vd where
+            and(
+                vd.type.name == "PreparedStatement",
+                vd.initializer is objectCreationExpression
+            )
+        ),
+        fd.contain(variableDeclaration vd where
+            and(
+                vd.type.name == "ResultSet",
+                vd.initializer is objectCreationExpression
+            )
+        ),
+        not(
+            fd.contain(tryWithResourcesStatement)
+        )
+    );

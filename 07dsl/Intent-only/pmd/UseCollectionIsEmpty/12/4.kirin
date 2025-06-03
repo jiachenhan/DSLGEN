@@ -1,0 +1,17 @@
+functionCall fc where
+    and(
+        fc.name == "size",
+        fc.base is VariableAccess,
+        fc.parent is BinaryExpression where
+            or(
+                parent.operator == "==",
+                parent.operator == "!=",
+                parent.operator == ">",
+                parent.operator == "<"
+            ),
+        fc.parent.right is Literal where
+            and(
+                right.value == "0",
+                right.type == "int"
+            )
+    );

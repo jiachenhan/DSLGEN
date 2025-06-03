@@ -1,0 +1,9 @@
+objectCreationExpression oc where
+    and(
+        oc.name == "Random",
+        oc in functionDeclaration fd where
+            fd.contain(objectCreationExpression oc2 where
+                and(oc2.name == "Random",
+                    oc2 isnot oc)
+            ) == false
+    );

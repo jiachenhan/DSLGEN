@@ -1,0 +1,12 @@
+functionDeclaration fd where
+    fd contain forStatement fs where
+        fs contain assignmentExpression ae where
+            and(
+                ae.lhs is variableAccess va where va.name == "rowIndex",
+                ae.rhs is fieldAccess fa where
+                    and(
+                        fa.name == "rowSize",
+                        fa.base is variableAccess baseVa where baseVa.name == "tablet"
+                    )
+            )
+);

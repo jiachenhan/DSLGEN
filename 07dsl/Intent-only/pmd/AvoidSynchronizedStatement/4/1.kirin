@@ -1,0 +1,3 @@
+synchronizedStatement ss where
+    ss.enclosingMethod em where
+        em.name == "merge";

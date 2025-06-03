@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain functionCall functioncall_1 where functioncall_1.base.name == "Assertions",
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1
+),
+not(functiondeclaration_1.body contain functionCall functioncall_2 where functioncall_2.base.name == "Assertions")
+);

@@ -1,0 +1,6 @@
+switchStatement sw where
+    sw.cases contain caseNode where
+        not(
+            caseNode.statements contain stmt where
+                stmt is breakStatement
+        );

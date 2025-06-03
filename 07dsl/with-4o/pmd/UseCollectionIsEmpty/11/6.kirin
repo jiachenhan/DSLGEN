@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain ternaryOperation ternaryoperation_1 where and(
+ternaryoperation_1.condition.lhs.name == "size",
+ternaryoperation_1.condition.rhs.value == 0,
+ternaryoperation_1.condition.operator == ">"
+);

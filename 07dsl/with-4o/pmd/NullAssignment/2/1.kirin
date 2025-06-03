@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where binaryoperation_1.operator == "=",
+not(functiondeclaration_1 contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.type.name match ".*DBRProgressMonitor",
+valuedeclaration_1.name == "jobMonitor"
+))
+);

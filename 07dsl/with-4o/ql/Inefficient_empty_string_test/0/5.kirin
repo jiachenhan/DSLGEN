@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain literal literal_1 where literal_1.value == "",
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.name == "equals"
+);

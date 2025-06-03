@@ -1,0 +1,35 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.lhs.base.name match "(?i).*Bes.*",
+binaryoperation_1.lhs.name == "size",
+binaryoperation_1.operator == "==",
+binaryoperation_1.rhs.value == 0
+),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.name == "clusterName",
+valuedeclaration_1.initializer.base.operand.base.name == "Env",
+valuedeclaration_1.initializer.base.operand.name == "getCurrentSystemInfo",
+valuedeclaration_1.initializer.name == "getClusterNameByClusterId",
+valuedeclaration_1.type.name match ".*String",
+valuedeclaration_1.initializer.arguments contain alias_1 where alias_1.name == "clusterId",
+valuedeclaration_1.initializer.base.castType.name match ".*CloudSystemInfoService"
+)),
+not(functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain throwStatement throwstatement_1 where and(
+throwstatement_1.operand.arguments contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.arguments contain alias_3 where alias_3.name == "clusterName",
+alias_2.arguments contain alias_5 where and(
+alias_5 is literal,
+alias_5.value == "There are no Backend nodes in the current compute group %s"
+),
+alias_2.base.name == "String",
+alias_2.name == "format"
+),
+throwstatement_1.operand.arguments contain alias_4 where alias_4.name == "CURRENT_COMPUTE_GROUP_NO_BE",
+throwstatement_1.operand.type.name match ".*ComputeGroupException"
+),
+ifblock_1.condition.base.name == "clusterBes",
+ifblock_1.condition.name == "isEmpty"
+))
+);

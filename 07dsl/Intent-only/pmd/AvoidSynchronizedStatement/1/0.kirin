@@ -1,0 +1,3 @@
+synchronizedStatement ss where
+    ss in functionDeclaration fd where
+        fd.name == "tryExecuteMemoryRelease";

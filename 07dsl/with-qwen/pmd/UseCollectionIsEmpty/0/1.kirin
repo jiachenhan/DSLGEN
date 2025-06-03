@@ -1,0 +1,12 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.lhs.name == "size",
+binaryoperation_1.operator == ">",
+binaryoperation_1.rhs.value == 0
+),
+functiondeclaration_1.body contain binaryOperation binaryoperation_2 where and(
+binaryoperation_2.lhs.lhs.name == "size",
+binaryoperation_2.lhs.rhs.value == 0,
+not(binaryoperation_2 contain unaryOperation unaryoperation_1 where unaryoperation_1.operand.base.name match "(?i)(logBuffer|buffer|collection|list|set|queue)$")
+)
+);

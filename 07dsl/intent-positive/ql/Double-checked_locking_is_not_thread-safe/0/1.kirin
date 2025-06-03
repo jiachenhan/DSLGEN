@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain synchronizedBlock synchronizedblock_1 where synchronizedblock_1.body contain ifBlock ifblock_2 where ifblock_2.condition.operator == "==",
+ifblock_1.condition.operator == "=="
+);

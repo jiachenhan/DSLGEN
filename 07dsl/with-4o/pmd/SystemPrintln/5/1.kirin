@@ -1,0 +1,12 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where alias_1 is binaryOperation,
+functioncall_1.name == "println"
+),
+functiondeclaration_1.body contain ifBlock ifblock_1 where ifblock_1.condition.name == "DEBUG",
+functiondeclaration_1.body contain functionCall functioncall_2 where and(
+functioncall_2.base.name == "out",
+functioncall_2.name == "println"
+),
+functiondeclaration_1.body contain ifBlock ifblock_2 where ifblock_2.condition.name match "(?i)debug"
+);

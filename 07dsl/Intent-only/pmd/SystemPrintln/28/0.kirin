@@ -1,0 +1,6 @@
+functionCall fc where
+    or(
+        fc.base.name == "System",
+        fc.name == "out",
+        fc.name == "err"
+    );

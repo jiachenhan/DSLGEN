@@ -1,0 +1,14 @@
+functionDeclaration functiondeclaration_1 where
+	and(
+		functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where
+			objectcreationexpression_1.type.name match ".*(?i).*(Long|Integer|Short|Byte|Float|Double|Boolean|Character)$",
+		functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_2 where
+			and(
+				objectcreationexpression_2.type.name match ".*Long",
+				objectcreationexpression_2.arguments contain alias_1 where
+					and(
+						alias_1 is literal,
+						alias_1.value == 12
+					)
+			)
+	);

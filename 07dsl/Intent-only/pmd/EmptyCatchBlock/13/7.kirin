@@ -1,0 +1,6 @@
+tryStatement ts where
+    ts.contain catchClause cc where
+        and(
+            cc.body.size() == 0,
+            not(cc contain throwStatement)
+        );

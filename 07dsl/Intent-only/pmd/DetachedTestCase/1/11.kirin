@@ -1,0 +1,8 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        not(
+            md.annotations contain annotation where
+                annotation.name == "Test"
+        )
+    );

@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain synchronizedBlock synchronizedblock_1 where synchronizedblock_1.body contain binaryOperation binaryoperation_1 where binaryoperation_1.lhs.name match "(?i)busy$",
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.name == "mergeStarted",
+functioncall_1.base.name == "projectData"
+))
+);

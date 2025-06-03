@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.annotations contain annotation annotation_1 where annotation_1.name == "Ignore",
+functiondeclaration_1.name match "^test\w*$",
+not(functiondeclaration_1 contain annotation annotation_2 where annotation_2.name == "Test")
+);

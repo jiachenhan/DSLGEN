@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.lhs.name match "(?i).*(Type_)$",
+not(binaryoperation_1 contain functionCall functioncall_1 where and(
+functioncall_1.base.name == "Mesg1",
+functioncall_1.name == "getDefaultInstance"
+))
+);

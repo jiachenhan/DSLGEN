@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name match "(Integer|Long|Double|Float)",
+functioncall_1.name match "(parseInt|parseLong|parseDouble|parseFloat)"
+),
+functiondeclaration_1.body contain functionCall functioncall_2 where and(
+functioncall_2.base.name match "(Integer|Long|Double|Float)",
+functioncall_2.name match "(parseInt|parseLong|parseDouble|parseFloat)"
+)
+);

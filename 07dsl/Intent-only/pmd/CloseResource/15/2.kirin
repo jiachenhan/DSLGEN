@@ -1,0 +1,9 @@
+objectCreationExpression zf where
+    and(
+        zf.name == "ZipFile",
+        zf.enclosingFunction ef where
+            not(
+                ef contain tryStatement ts where
+                    ts.resources contain zf
+            )
+    );

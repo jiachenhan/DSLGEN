@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain returnStatement returnstatement_1 where and(
+returnstatement_1.returnValue.condition.lhs.name == "size",
+returnstatement_1.returnValue.condition.rhs.value == 0,
+returnstatement_1.returnValue.condition.operator == "=="
+);

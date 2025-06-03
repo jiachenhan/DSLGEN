@@ -1,0 +1,13 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where and(
+objectcreationexpression_1.arguments contain alias_1 where alias_1.name match "(?i).*\.(rowSize)$",
+not(objectcreationexpression_1 contain functionCall functioncall_1 where and(
+functioncall_1.name == "getRowSize",
+functioncall_1.base.name == "tablet"
+))
+),
+functiondeclaration_1.parameters contain alias_2 where and(
+alias_2 is valueDeclaration,
+alias_2.name match "`(?i).*tablet.*`"
+)
+);

@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.rhs.lhs.name == "size",
+binaryoperation_1.lhs.rhs.value == 0,
+binaryoperation_1.rhs.rhs.value == 0
+);

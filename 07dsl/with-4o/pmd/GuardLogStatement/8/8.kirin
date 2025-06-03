@@ -1,0 +1,48 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.base.name match "(?i).*(Logger|Log)$",
+not(functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain functionCall functioncall_2 where and(
+functioncall_2.arguments contain alias_1 where and(
+alias_1 is binaryOperation,
+alias_1.rhs.name == "getUniqueAlias",
+alias_1.lhs.value == "Try to create a query plan starting with ",
+alias_1.operator == "+",
+alias_1.rhs.base.name == "leftmostRef"
+),
+functioncall_2.name == "debug",
+functioncall_2.base.name == "LOG"
+),
+ifblock_1.condition.name == "isDebugEnabled",
+ifblock_1.condition.base.name == "LOG"
+)),
+not(functiondeclaration_1.body contain ifBlock ifblock_2 where and(
+ifblock_2.thenBlock contain functionCall functioncall_3 where and(
+functioncall_3.arguments contain alias_2 where and(
+alias_2 is binaryOperation,
+alias_2.lhs.value == "The final join sequence is ",
+alias_2.rhs.base.base.base.name == "joinedRefs",
+alias_2.rhs.base.arguments contain alias_3 where and(
+alias_3 is methodReferenceExpression,
+alias_3.name == "getUniqueAlias"
+),
+alias_2.rhs.base.name == "map",
+alias_2.rhs.arguments contain alias_4 where and(
+alias_4 is functionCall,
+alias_4.arguments contain alias_5 where and(
+alias_5 is literal,
+alias_5.value == ","
+),
+alias_4.base.name == "Collectors",
+alias_4.name == "joining"
+),
+alias_2.rhs.name == "collect",
+alias_2.rhs.base.base.name == "stream",
+alias_2.operator == "+"
+),
+functioncall_3.name == "debug",
+functioncall_3.base.name == "LOG"
+),
+ifblock_2.condition.name == "isDebugEnabled",
+ifblock_2.condition.base.name == "LOG"
+))
+);

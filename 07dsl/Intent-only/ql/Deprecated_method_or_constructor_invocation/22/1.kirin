@@ -1,0 +1,7 @@
+functionCall fc where
+    and(
+        fc.name == "assertEquals",
+        fc.arguments contain arg where
+            arg is objectCreationExpression where
+                name == "Long"
+    );

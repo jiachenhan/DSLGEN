@@ -1,0 +1,16 @@
+methodDeclaration md where
+    and(
+        md.contain tryCatchBlock,
+        md.contain functionCall fc where
+            and(
+                fc.name == "fail",
+                fc.arguments[0].name == "Expected IllegalArgumentException"
+            ),
+        not(
+            md.contain annotation where
+                and(
+                    annotation.name == "Test",
+                    annotation.arguments[0].name == "expected"
+                )
+        )
+    );

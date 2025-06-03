@@ -1,0 +1,2 @@
+catchClause cc where
+    cc.catchType.name == "Throwable";

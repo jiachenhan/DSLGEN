@@ -1,0 +1,14 @@
+functionCall fc where
+    and(
+        fc.base.name == "System.out",
+        fc.name == "println",
+        fc.arguments[0] arg where
+            arg is stringConcatenation where
+                arg.operands[1] op1 where
+                    op1 is fieldAccess where
+                        op1.name == "rowSize",
+                    not(
+                        op1 is functionCall where
+                            op1.name == "getRowSize"
+                    )
+    );

@@ -1,0 +1,6 @@
+functionDeclaration fd where
+    and(
+        fd.containAnnotation annotation where
+            annotation.name == "Test",
+        fd.isPublic
+    );

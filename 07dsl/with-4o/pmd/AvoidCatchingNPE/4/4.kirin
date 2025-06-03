@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where alias_1 is castExpression,
+functioncall_1.name == "toArray"
+),
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where catchblock_1.parameters contain alias_2 where and(
+alias_2 is valueDeclaration,
+alias_2.type.name match ".*NullPointerException"
+)
+);

@@ -1,0 +1,5 @@
+functionDeclaration fd where
+    and(
+        fd.isOverrideMethod,
+        not(fd.annotations contain annotation where annotation.name == "Override")
+    );

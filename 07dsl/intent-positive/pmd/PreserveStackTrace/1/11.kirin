@@ -1,0 +1,1 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain catchBlock catchblock_1 where catchblock_1.body contain throwStatement throwstatement_1 where throwstatement_1.operand.arguments contain alias_1 where alias_1 is functionCall;

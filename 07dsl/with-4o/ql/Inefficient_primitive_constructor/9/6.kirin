@@ -1,0 +1,17 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*Long",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*java\.lang\.(Integer|Long|Short|Byte|Double|Float|Character|Boolean)",
+not(functiondeclaration_1 contain annotation annotation_1 where and(
+annotation_1.name == "SuppressWarnings",
+annotation_1.annoMembers contain initArrayExpression initarrayexpression_1 where and(
+initarrayexpression_1.elements contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == "PointlessArithmeticExpression"
+),
+initarrayexpression_1.elements contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == "WrapperTypeMayBePrimitive"
+)
+)
+))
+);

@@ -1,0 +1,7 @@
+objectCreationExpression fos where
+    and(
+        fos.name == "FileOutputStream",
+        not(
+            fos in tryWithResourcesStatement
+        )
+    );

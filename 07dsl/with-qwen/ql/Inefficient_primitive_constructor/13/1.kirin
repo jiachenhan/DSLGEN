@@ -1,0 +1,29 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where and(
+objectcreationexpression_1.type.name match ".*(?i)(Integer|Long|Double|Float|Short|Byte)",
+objectcreationexpression_1.arguments contain alias_3 where and(
+alias_3 is literal,
+alias_3.value == 2
+)
+),
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_2 where and(
+objectcreationexpression_2.type.name match ".*(Integer|Long|Double|Float|Short|Byte)",
+objectcreationexpression_2.arguments contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == 1
+)
+),
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_3 where and(
+objectcreationexpression_3.type.name match ".*(Integer|Long|Double|Float|Short|Byte)",
+objectcreationexpression_3.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == 3
+)
+),
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*(Integer|Long|Double|Float|Short|Byte)",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*(Integer|Long|Double|Float|Short|Byte)",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_3 where valuedeclaration_3.type.name match ".*(Integer|Long|Double|Float|Short|Byte)",
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_4 where valuedeclaration_4.type.name match ".*(?i)(Integer|Long|Boolean|Double|Float|Short|Byte)"),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_5 where valuedeclaration_5.type.name match ".*(Integer|Byte|Short|Long|Float|Double|Boolean|Character)"),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_6 where valuedeclaration_6.type.name match ".*Integer")
+);

@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where binaryoperation_1.lhs.name match "(?i).*(Literal)$",
+functiondeclaration_1.body contain fieldAccess fieldaccess_1
+);

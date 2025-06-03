@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain functionCall functioncall_1 where functioncall_1.name match "(fail|assertFail|expectFail|verifyFail)",
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1
+);

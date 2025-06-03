@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*(?i)^(Byte|Short|Integer|Long|Float|Double|Character|Boolean)$",
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_2 where objectcreationexpression_2.type.name match ".*(?:Long|Integer|Double|Float|Short|Byte|Boolean|Character)",
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_3 where objectcreationexpression_3.type.name match ".*Long",
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_4 where objectcreationexpression_4.type.name match ".*^(Long|Integer|Double|Float|Short|Byte|Character|Boolean)$",
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_5 where objectcreationexpression_5.type.name match ".*Long"
+);

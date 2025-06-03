@@ -1,0 +1,6 @@
+variableDeclaration vd where
+    and(
+        vd.name == "ip",
+        vd.initializer is stringLiteral where
+            value match "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"
+    );

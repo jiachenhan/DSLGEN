@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name match "System\.(err|out)",
+functioncall_1.name == "println"
+);

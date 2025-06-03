@@ -1,0 +1,2 @@
+ifStatement ifs where
+    ifs.condition contain assignExpression;

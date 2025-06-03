@@ -1,0 +1,18 @@
+{
+  "RuleSet": {
+    "rules": {
+      "dslRule": [
+        {
+          "language": "java",
+          "id": "83FA4CA8-D3FA-430A-A17C-713F13CEF77C",
+          "checker": "SecH_3 copy",
+          "checkerId": "0e593391d23e4ea193c66fa460620c43",
+          "dsl": "functionDeclaration functiondeclaration_1 where\r\n\tnot(\r\n\t\tfunctiondeclaration_1 contain annotation annotation_1 where\r\n\t\t\tannotation_1.name == \"Override\"\r\n\t);\r\n",
+          "description": "规则描述信息，需用户修改",
+          "category": "质量问题",
+          "subCategory": "质量问题"
+        }
+      ]
+    }
+  }
+}

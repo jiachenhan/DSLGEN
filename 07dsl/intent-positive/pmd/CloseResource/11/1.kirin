@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.type.name match ".*(?i).*(OutputStream|Writer|Reader|Channel|Connection)$",
+valuedeclaration_1.type.name match ".*(?i).*(OutputStream|Writer|Reader|Stream|Channel)$"
+),
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where and(
+valuedeclaration_2.initializer.type.name match ".*(?i).*(OutputStream|Writer|Reader|Stream|Channel)$",
+valuedeclaration_2.type.name match ".*BufferedOutputStream"
+)
+);

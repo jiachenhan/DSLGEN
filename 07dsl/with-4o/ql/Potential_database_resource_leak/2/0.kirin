@@ -1,0 +1,11 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.rhs.name == "getConnection",
+binaryoperation_1.lhs.name match "(?i).*conn.*"
+),
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*Connection",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where and(
+valuedeclaration_2.type.name match ".*PreparedStatement",
+valuedeclaration_2.name match "(?i).*(stmt|statement)$"
+)
+);

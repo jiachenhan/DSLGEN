@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where not(binaryoperation_1 contain functionCall functioncall_1 where functioncall_1.base.name match "(?i).*\.QueryIdentifierProto$"),
+functiondeclaration_1.body contain nullLiteral nullliteral_1
+);

@@ -1,0 +1,61 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where not(catchblock_1.body contain functionCall functioncall_6),
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is lambdaExpression,
+alias_1.body contain functionCall functioncall_2 where and(
+functioncall_2.base.arguments contain alias_2 where and(
+alias_2 is lambdaExpression,
+alias_2.body contain exceptionBlock exceptionblock_2 where and(
+exceptionblock_2.catchBlocks contain catchBlock catchblock_2 where and(
+catchblock_2.body contain functionCall functioncall_3 where and(
+functioncall_3.arguments contain alias_3 where and(
+alias_3 is functionCall,
+alias_3.base.name == "t",
+alias_3.name == "getName"
+),
+functioncall_3.arguments contain alias_6 where alias_6.name == "e",
+functioncall_3.name == "error",
+functioncall_3.arguments contain alias_9 where and(
+alias_9 is literal,
+alias_9.value == "[{}] Close kafka source error"
+),
+functioncall_3.base.name match "(?i).*(log|logger)"
+),
+catchblock_2.parameters contain alias_7 where and(
+alias_7 is valueDeclaration,
+alias_7.type.name match ".*(?i)(exception|error|throwable)",
+alias_7.name == "ex"
+)
+),
+exceptionblock_2.tryBlock contain functionCall functioncall_5 where functioncall_5.name match "(close|shutdown|terminate|stop|release)"
+),
+alias_2.body contain functionCall functioncall_4 where and(
+functioncall_4.base.name match "(?i)(log|logger)",
+functioncall_4.arguments contain alias_4 where and(
+alias_4 is functionCall,
+alias_4.base.name == "t",
+alias_4.name == "getName"
+),
+functioncall_4.name match "(?i)(error|warn|info|debug|trace)",
+functioncall_4.arguments contain alias_11 where and(
+alias_11 is literal,
+alias_11.value == "[{}] Error while consuming records"
+),
+functioncall_4.arguments contain alias_12 where alias_12.name == "e"
+)
+),
+functioncall_2.base.arguments contain alias_5 where and(
+alias_5 is literal,
+alias_5.value match "(?i)(kafka|source|close|task|thread)"
+),
+functioncall_2.base.type.name match ".*Thread",
+functioncall_2.name == "start"
+),
+alias_1.parameters contain alias_8 where alias_8.name == "t",
+alias_1.parameters contain alias_10 where alias_10.name == "e"
+),
+functioncall_1.name == "setUncaughtExceptionHandler",
+functioncall_1.base.name == "runnerThread"
+))
+);

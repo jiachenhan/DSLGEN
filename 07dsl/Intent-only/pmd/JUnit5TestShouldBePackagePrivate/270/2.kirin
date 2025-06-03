@@ -1,0 +1,5 @@
+functionDeclaration fd where
+    and(
+        fd.containAnnotation("Test"),
+        fd.modifiers contain "public"
+    );

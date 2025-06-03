@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.type.name match ".*RandomAccessFile",
+valuedeclaration_1.type.name match ".*(?i).*randomaccessfile"
+);

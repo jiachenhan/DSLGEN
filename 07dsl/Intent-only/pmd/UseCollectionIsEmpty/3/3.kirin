@@ -1,0 +1,25 @@
+functionCall fc where
+    or(
+        and(
+            fc.name == "size",
+            fc.enclosingExpression ee where
+                or(
+                    ee.operator == "==",
+                    ee.operator == "!=",
+                    ee.operator == ">",
+                    ee.operator == "<"
+                ),
+            ee.rightOperand == 0
+        ),
+        and(
+            fc.name == "size",
+            fc.enclosingExpression ee where
+                or(
+                    ee.operator == "==",
+                    ee.operator == "!=",
+                    ee.operator == ">",
+                    ee.operator == "<"
+                ),
+            ee.rightOperand == 1
+        )
+    );

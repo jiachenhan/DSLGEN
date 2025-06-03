@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain tryWithResources trywithresources_1 where trywithresources_1.catchBlocks contain catchBlock catchblock_1 where and(
+catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.type.name match ".*Throwable"
+),
+not(catchblock_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_2 where alias_2.name == "e",
+functioncall_1.name == "rethrowIOException"
+))
+);

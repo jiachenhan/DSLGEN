@@ -1,0 +1,5 @@
+catchClause cc where
+    cc.body contain ifStatement ifs where
+        ifs.condition contain instanceofExpression ie where
+            ie.expression is VariableAccess va where
+                va.name == "e";

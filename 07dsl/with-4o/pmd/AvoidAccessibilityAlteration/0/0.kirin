@@ -1,0 +1,11 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == true
+),
+functioncall_1.name == "setAccessible"
+),
+functiondeclaration_1.body contain functionCall functioncall_2 where functioncall_2.name == "getDeclaredField",
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*ManagedLedgerConfig")
+);

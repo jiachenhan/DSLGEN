@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.type.name match ".*IllegalArgumentException",
+valuedeclaration_1.name match "(?i).*(expected)$"
+),
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.name == "fail",
+functiondeclaration_1.body contain functionCall functioncall_2
+);

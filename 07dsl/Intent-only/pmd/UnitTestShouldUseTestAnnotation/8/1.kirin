@@ -1,0 +1,15 @@
+functionDeclaration fd where
+    and(
+        fd.isPublic,
+        fd.name startWith "test",
+        not(
+            fd.annotations contain annotation where
+                or(
+                    annotation.name == "Test",
+                    annotation.name == "RepeatedTest",
+                    annotation.name == "TestFactory",
+                    annotation.name == "TestTemplate",
+                    annotation.name == "ParameterizedTest"
+                )
+        )
+    );

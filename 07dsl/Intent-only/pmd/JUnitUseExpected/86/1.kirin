@@ -1,0 +1,14 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md.body contain tryStatement ts where
+            ts contain catchStatement cs where
+                cs.exceptionType.name == "TimeoutException",
+        not(
+            md.annotations contain annotation where
+                annotation.name == "Test" and
+                annotation.arguments contain arg where
+                    arg.name == "expected" and
+                    arg.value == "TimeoutException.class"
+        )
+    );

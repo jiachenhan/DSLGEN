@@ -1,0 +1,11 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain switchBlock switchblock_1 where and(
+not(switchblock_1 contain caseStatement casestatement_1 where casestatement_1.caseExpression.name == "NULL"),
+not(switchblock_1 contain throwStatement throwstatement_1 where throwstatement_1.operand.base.name match "(SqlException|SQLException|DatabaseException|QueryException)"),
+not(switchblock_1 contain defaultStatement)
+),
+not(functiondeclaration_1 contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.type.name match ".*LongList",
+valuedeclaration_1.name == "outList"
+))
+);

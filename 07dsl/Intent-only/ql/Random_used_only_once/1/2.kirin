@@ -1,0 +1,8 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "Random",
+        oce in methodDeclaration md where
+            md contain functionCall fc where
+                fc.name == "write",
+            oce in forBlock
+    );

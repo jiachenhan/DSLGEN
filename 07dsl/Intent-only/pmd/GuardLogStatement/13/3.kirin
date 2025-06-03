@@ -1,0 +1,15 @@
+functionCall fc where
+    and(
+        fc.base.name match "log.*",
+        not(
+            fc in ifStatement where
+                and(
+                    ifStatement.condition is functionCall where
+                        and(
+                            functionCall.base.name match "log.*",
+                            functionCall.name startWith "is",
+                            functionCall.name endWith "Enabled"
+                        )
+                )
+        )
+    );

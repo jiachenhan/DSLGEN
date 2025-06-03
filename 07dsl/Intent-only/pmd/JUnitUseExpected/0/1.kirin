@@ -1,0 +1,21 @@
+methodDeclaration md where
+    and(
+        md.contain tryStatement,
+        md.contain functionCall fc where
+            and(
+                fc.name == "fail",
+                fc.enclosingFunction is md
+            ),
+        md.contain catchClause cc where
+            and(
+                cc.exceptionType.name == "IllegalArgumentException",
+                cc.enclosingFunction is md
+            ),
+        not(
+            md.contain annotation where
+                and(
+                    annotation.name == "Test",
+                    annotation.arguments[0].name == "expected"
+                )
+        )
+    );

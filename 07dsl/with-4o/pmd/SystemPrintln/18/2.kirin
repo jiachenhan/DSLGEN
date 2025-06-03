@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name == "out",
+functioncall_1.name == "println"
+),
+not(functiondeclaration_1.body contain returnStatement returnstatement_1 where returnstatement_1.returnValue.value == true)
+);

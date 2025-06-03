@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name match "(?i).*LOG.*",
+functioncall_1.name == "debug",
+functioncall_1 notIn ifBlock ifblock_2 where ifblock_2.condition.name match "(?i)^is.*Enabled$"
+),
+not(functiondeclaration_1.body contain ifBlock ifblock_1 where ifblock_1.condition.base.name match "(?i)log(ger)?")
+);

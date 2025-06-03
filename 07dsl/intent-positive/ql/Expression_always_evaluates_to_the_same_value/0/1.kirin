@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.arguments contain alias_1 where alias_1.name match "(?i).*(size|count|length)$",
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where binaryoperation_1.rhs.name match "(?i).*(rowSize|size|count|length)$"
+);

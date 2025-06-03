@@ -1,0 +1,18 @@
+{
+  "RuleSet": {
+    "rules": {
+      "dslRule": [
+        {
+          "language": "java",
+          "id": "505D6AF4-07F8-4B58-B466-86DF915B63EF",
+          "checker": "SecH_2 copy",
+          "checkerId": "2d760e4411c84ffc8f9c0774013c3c52",
+          "dsl": "functionDeclaration functiondeclaration_1 where\r\n\tfunctiondeclaration_1.body contain functionCall functioncall_1 where\r\n\t\tfunctioncall_1.base.type.name match \"java.util.Random\";\r\n",
+          "description": "规则描述信息，需用户修改",
+          "category": "质量问题",
+          "subCategory": "质量问题"
+        }
+      ]
+    }
+  }
+}

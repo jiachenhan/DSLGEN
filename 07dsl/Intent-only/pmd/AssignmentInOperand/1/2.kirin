@@ -1,0 +1,2 @@
+assignmentExpression ae where
+    ae in ifStatement;

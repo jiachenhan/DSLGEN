@@ -1,0 +1,17 @@
+functionCall fc where
+    and(
+        fc.base.name match "log.*",
+        fc.name == "trace",
+        not(
+            fc in ifStatement where
+                and(
+                    fc.enclosingFunction ef where
+                        ef contain functionCall fcGuard where
+                            and(
+                                fcGuard.base.name match "log.*",
+                                fcGuard.name == "isTraceEnabled"
+                            ),
+                    fcGuard is fc
+                )
+        )
+    );

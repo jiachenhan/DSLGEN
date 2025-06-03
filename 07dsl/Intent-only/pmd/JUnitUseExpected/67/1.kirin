@@ -1,0 +1,8 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md contain tryBlock,
+        md contain catchBlock cb where
+            cb.exceptionType.name == "IllegalArgumentException",
+        not(md.annotations contain annotation where annotation.name == "Test" and annotation.arguments contain arg where arg.name == "expected")
+    );

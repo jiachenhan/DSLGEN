@@ -1,0 +1,9 @@
+classDeclaration cd where
+    and(
+        cd contain methodDeclaration md where
+            and(
+                md contain annotation an where
+                    an.name == "Test",
+                md.isPublic == true
+            )
+    );

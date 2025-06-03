@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where and(
+objectcreationexpression_1.type.name match ".*(?i)(Float|Double|Integer|Long|Short|Byte|Boolean)",
+objectcreationexpression_1.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == 0.0
+)
+);

@@ -1,0 +1,3 @@
+switchStatement sw where
+    not(sw.cases contain caseClause where
+        caseClause is defaultCase);

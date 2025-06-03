@@ -1,0 +1,10 @@
+functionDeclaration fd where
+    and(
+        fd.name == "run",
+        fd.enclosingFunction ef where
+            ef is anonymousClassDeclaration,
+        not(
+            fd contain annotation where
+                name == "Override"
+        )
+    );

@@ -1,0 +1,36 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain switchBlock switchblock_1 where and(
+not(switchblock_1 contain caseStatement casestatement_1 where casestatement_1.caseExpression.name match "(?i)ColumnType\.(NULL|UNKNOWN|UNDEFINED|NONE)"),
+not(switchblock_1 contain throwStatement throwstatement_1 where and(
+throwstatement_1.operand.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.arguments contain alias_2 where alias_2.name == "i",
+alias_1.name == "getQuick",
+alias_1.base.name == "argPositions"
+),
+throwstatement_1.operand.arguments contain alias_3 where and(
+alias_3 is functionCall,
+alias_3.name == "nameOf",
+alias_3.arguments contain alias_8 where alias_8.name == "TIMESTAMP",
+alias_3.base.name == "ColumnType"
+),
+throwstatement_1.operand.arguments contain alias_4 where and(
+alias_4 is functionCall,
+alias_4.arguments contain alias_5 where and(
+alias_5 is functionCall,
+alias_5.base.name == "func",
+alias_5.name == "getType"
+),
+alias_4.base.name == "ColumnType",
+alias_4.name == "nameOf"
+),
+throwstatement_1.operand.arguments contain alias_6 where and(
+alias_6 is functionCall,
+alias_6.name == "getType",
+alias_6.base.name == "func"
+),
+throwstatement_1.operand.arguments contain alias_7 where alias_7.name == "TIMESTAMP",
+throwstatement_1.operand.name == "inconvertibleTypes",
+throwstatement_1.operand.base.name == "SqlException"
+)),
+not(switchblock_1 contain defaultStatement)
+);

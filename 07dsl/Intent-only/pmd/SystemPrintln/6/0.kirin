@@ -1,0 +1,5 @@
+functionCall fc where
+    and(
+        fc.base.name == "System.out" or fc.base.name == "System.err",
+        fc.name == "println"
+    );

@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain functionCall functioncall_1 where functioncall_1.name match "(fail|assertFail|expectFail)",
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.name match "(?i).*ignored$"
+)
+),
+not(functiondeclaration_1.body contain functionCall functioncall_2 where functioncall_2.base.name match "(Assertions|Assert)")
+);

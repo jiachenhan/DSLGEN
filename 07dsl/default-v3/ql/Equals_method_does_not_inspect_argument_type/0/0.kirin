@@ -1,0 +1,9 @@
+functionDeclaration functiondeclaration_1 where
+	and(
+		functiondeclaration_1.body contain castExpression castexpression_1,
+		functiondeclaration_1.name == "equals",
+		not(
+			functiondeclaration_1.body contain ifBlock ifblock_1 where
+				ifblock_1.condition.operand.lhs.name match "(?i).*(other|obj|that|arg)$"
+		)
+	);

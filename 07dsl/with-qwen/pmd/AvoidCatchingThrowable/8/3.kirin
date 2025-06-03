@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain catchBlock catchblock_1 where catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.type.name match ".*(Throwable|Error|Exception)$"
+),
+not(functiondeclaration_1 contain annotation annotation_1 where and(
+annotation_1.name == "SuppressWarnings",
+annotation_1.annoMembers contain literal literal_1 where literal_1.value == "squid:S2142"
+))
+);

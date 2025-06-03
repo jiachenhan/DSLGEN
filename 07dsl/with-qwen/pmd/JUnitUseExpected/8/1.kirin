@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain literal literal_1 where literal_1.value match "(?i)IllegalArgumentException.*expected.*for.*",
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.type.name match ".*(IllegalArgumentException|IllegalStateException|RuntimeException|Exception)"
+),
+exceptionblock_1.tryBlock contain functionCall functioncall_1
+);

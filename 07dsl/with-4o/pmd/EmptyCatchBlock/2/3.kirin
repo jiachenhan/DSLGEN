@@ -1,0 +1,1 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain catchBlock catchblock_1 where not(catchblock_1.body contain ifBlock ifblock_1 where ifblock_1.condition.lhs.base.name match "(?i).*Context$");

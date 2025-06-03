@@ -1,0 +1,32 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*SimpleDateFormat",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.type.name match ".*SimpleDateFormat",
+valuedeclaration_1.type.name match ".*SimpleDateFormat"
+),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*DateTimeFormatter"),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_3 where and(
+valuedeclaration_3.initializer.type.name match ".*DateProperty",
+valuedeclaration_3.initializer.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.arguments contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.name == "systemDefault",
+alias_2.base.name == "ZoneId"
+),
+alias_1.base.arguments contain alias_4 where and(
+alias_4 is literal,
+alias_4.value match "(?i)\b(?:\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\b"
+),
+alias_1.base.name match "(ofPattern|withPattern|createPattern)",
+alias_1.base.base.name match "(DateTimeFormatter|LocalDateTime|ZonedDateTime|Instant)",
+alias_1.name == "withZone"
+),
+valuedeclaration_3.type.name match ".*DateProperty",
+valuedeclaration_3.initializer.arguments contain alias_3 where and(
+alias_3 is literal,
+alias_3.value == "key"
+),
+valuedeclaration_3.name match "(prop|property|dateProp|schemaProp)"
+))
+);

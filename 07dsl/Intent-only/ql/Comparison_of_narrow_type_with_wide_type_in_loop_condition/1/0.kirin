@@ -1,0 +1,19 @@
+functionDeclaration fd where
+    and(
+        fd.contain forLoop fl where
+            and(
+                fl.condition contain binaryExpression be where
+                    or(
+                        and(
+                            be.leftOperand.type.name == "int",
+                            be.rightOperand.type.name == "long"
+                        ),
+                        and(
+                            be.leftOperand.type.name == "long",
+                            be.rightOperand.type.name == "int"
+                        )
+                    ),
+                fl.initialization contain variableDeclaration vd where
+                    vd.type.name == "int"
+            )
+    );

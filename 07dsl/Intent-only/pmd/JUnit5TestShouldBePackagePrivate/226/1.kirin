@@ -1,0 +1,6 @@
+methodDeclaration md where
+    and(
+        md.containAnnotation(name == "Test"),
+        md.modifiers contain modifier where
+            modifier == "public"
+    );

@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.base.name match "(List|Collection|Iterable)"
+),
+valuedeclaration_1.initializer.type.name match ".*(ArrayList|LinkedList|HashSet|HashMap|TreeSet|TreeMap)",
+valuedeclaration_1.type.name match ".*(ArrayList|LinkedList|HashSet|HashMap|TreeSet|TreeMap)"
+);

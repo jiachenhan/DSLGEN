@@ -1,0 +1,6 @@
+catchBlock cb where
+    and(
+        cb.body.size() == 0,
+        not(cb.parent is tryStatement where
+            cb.parent.finallyBlock.size() > 0)
+    );

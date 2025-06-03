@@ -1,0 +1,9 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "FileOutputStream",
+        not(
+            oce in tryStatement where
+                tryStatement.resources contain resource where
+                    resource is oce
+        )
+    );

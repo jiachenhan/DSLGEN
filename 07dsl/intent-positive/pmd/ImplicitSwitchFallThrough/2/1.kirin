@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain switchBlock switchblock_1 where and(
+switchblock_1.body contain defaultStatement,
+switchblock_1.body contain caseStatement casestatement_1,
+switchblock_1.body contain caseStatement casestatement_2,
+switchblock_1.body contain caseStatement casestatement_3,
+switchblock_1.body contain caseStatement casestatement_4,
+switchblock_1.body contain caseStatement casestatement_5
+);

@@ -1,0 +1,5 @@
+functionDeclaration fd where
+    and(
+        fd.annotation.name == "Test",
+        fd.modifier == "public"
+    );

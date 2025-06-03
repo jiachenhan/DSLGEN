@@ -1,0 +1,3 @@
+synchronizedStatement ss where
+    ss in methodDeclaration md where
+        md.name == "invoke";

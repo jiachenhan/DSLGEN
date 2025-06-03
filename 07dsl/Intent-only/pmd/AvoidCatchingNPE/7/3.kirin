@@ -1,0 +1,3 @@
+tryCatchStatement tc where
+    tc.catchClauses contain catchClause cc where
+        cc.exceptionType.name == "NullPointerException";

@@ -1,0 +1,8 @@
+switchStatement sw where
+    and(
+        sw.expression.type is enumType,
+        not(
+            sw.cases contain caseClause where
+                caseClause is defaultCase
+        )
+    );

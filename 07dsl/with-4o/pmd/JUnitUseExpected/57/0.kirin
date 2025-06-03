@@ -1,0 +1,9 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain catchBlock catchblock_1 where catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.type.name match ".*NoResultException"
+),
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.name == "fail",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1,
+not(functiondeclaration_1.body contain functionCall functioncall_2 where functioncall_2.name == "assertThrows")
+);

@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.type.name match ".*(?i).*OutputStream$",
+valuedeclaration_1.type.name match ".*FileOutputStream"
+),
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.name match "(close|shutdown|dispose)"
+);

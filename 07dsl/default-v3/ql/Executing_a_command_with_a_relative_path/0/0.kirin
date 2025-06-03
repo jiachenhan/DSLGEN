@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where
+	functiondeclaration_1.body contain functionCall functioncall_1 where
+		and(
+			functioncall_1.arguments contain alias_1 where
+				and(
+					alias_1 is binaryOperation,
+					alias_1.lhs.value match "(?i)rundll32\s+url\.dll,FileProtocolHandler\s*"
+				),
+			functioncall_1.name == "exec"
+		);

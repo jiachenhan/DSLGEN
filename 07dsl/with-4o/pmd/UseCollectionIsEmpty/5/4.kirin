@@ -1,0 +1,14 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.name == "size"
+),
+functioncall_1.arguments contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == 0
+),
+functioncall_1.arguments contain alias_3 where and(
+alias_3 is binaryOperation,
+alias_3.operator == ">"
+)
+);

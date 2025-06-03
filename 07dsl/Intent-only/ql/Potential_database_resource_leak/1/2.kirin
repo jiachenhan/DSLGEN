@@ -1,0 +1,18 @@
+tryStatement ts where
+    and(
+        ts.block contain objectCreationExpression oc where
+            and(
+                oc.name == "Statement",
+                not(
+                    ts.resources contain resource where
+                        resource is objectCreationExpression and
+                        resource.name == "Statement"
+                )
+            ),
+        ts.block contain methodCall mc where
+            and(
+                mc.name == "executeQuery",
+                mc.base is VariableAccess and
+                mc.base.name == "statement"
+            )
+    );

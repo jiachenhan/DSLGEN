@@ -1,0 +1,7 @@
+methodDeclaration md where
+    and(
+        md.isOverride == false,
+        md.enclosingClass.superClass.methods contain superMethod where
+            superMethod.name == md.name,
+        md.parameters.size() == superMethod.parameters.size()
+    );

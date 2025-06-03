@@ -1,0 +1,5 @@
+objectCreationExpression oce where
+    and(
+        oce.type.name == "Integer",
+        oce.arguments.size() == 1
+    );

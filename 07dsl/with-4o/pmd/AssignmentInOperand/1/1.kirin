@@ -1,0 +1,5 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.condition.lhs.lhs.name match "(?i).*(err|error|errno|status).*",
+ifblock_1.condition.rhs.value == 0,
+not(ifblock_1 contain unaryOperation unaryoperation_1 where unaryoperation_1.operand.name match "(?i).*dir")
+);

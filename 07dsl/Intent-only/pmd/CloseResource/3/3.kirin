@@ -1,0 +1,7 @@
+objectCreationExpression pstmt where
+    and(
+        pstmt.name == "PreparedStatement",
+        not(
+            pstmt in tryWithResourcesStatement
+        )
+    );

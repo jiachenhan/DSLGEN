@@ -1,0 +1,16 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md.containingClass is classDeclaration where
+            name match ".*Test",
+        not(
+            md.annotations contain annotation where
+                or(
+                    annotation.name == "Test",
+                    annotation.name == "RepeatedTest",
+                    annotation.name == "TestFactory",
+                    annotation.name == "TestTemplate",
+                    annotation.name == "ParameterizedTest"
+                )
+        )
+    );

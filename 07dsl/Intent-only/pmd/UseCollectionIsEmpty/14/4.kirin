@@ -1,0 +1,18 @@
+expressionStatement es where
+    es.expression is binaryExpression be where
+        and(
+            be.left is methodCall mc where
+                and(
+                    mc.name == "size",
+                    mc.base is VariableAccess va where
+                        va.name match ".*"
+                ),
+            or(
+                be.operator == "==",
+                be.operator == "!=",
+                be.operator == ">",
+                be.operator == "<"
+            ),
+            be.right is literal l where
+                l.value == "0"
+        );

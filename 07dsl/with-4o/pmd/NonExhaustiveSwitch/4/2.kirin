@@ -1,0 +1,38 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain switchBlock switchblock_1 where and(
+switchblock_1.body contain switchBlock switchblock_2 where and(
+switchblock_2.selector.base.base.name match "(?i).*(castTo)$",
+switchblock_2.selector.base.name == "getElementType",
+switchblock_2.body contain caseStatement casestatement_2,
+not(switchblock_2 contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.castType.name match ".*ExpressionType",
+valuedeclaration_1.type.name match ".*ExpressionType",
+valuedeclaration_1.name == "elementType",
+valuedeclaration_1.initializer.operand.name == "getElementType",
+valuedeclaration_1.initializer.operand.base.name == "castTo"
+)),
+not(switchblock_2 contain returnStatement returnstatement_1 where and(
+returnstatement_1.returnValue.arguments contain alias_1 where and(
+alias_1 is arrayCreationExpression,
+alias_1.initArray.elements contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.base.name == "castTo",
+alias_2.base.arguments contain alias_3 where alias_3.name == "elementType",
+alias_2.name == "value"
+)
+),
+returnstatement_1.returnValue.type.name match ".*ArrayExprEval",
+returnstatement_1.returnValue.arguments contain alias_4 where alias_4.name == "castTo"
+)),
+not(switchblock_2 contain defaultStatement)
+),
+switchblock_1.body contain caseStatement casestatement_1 where casestatement_1.caseExpression.name == "ARRAY",
+not(switchblock_1 contain ifBlock ifblock_1 where and(
+ifblock_1.condition.lhs.name == "value",
+ifblock_1.thenBlock contain returnStatement returnstatement_2 where and(
+returnstatement_2.returnValue.type.name match ".*ArrayExprEval",
+returnstatement_2.returnValue.arguments contain alias_5 where alias_5 is nullLiteral,
+returnstatement_2.returnValue.arguments contain alias_6 where alias_6.name == "castTo"
+),
+ifblock_1.condition.operator == "=="
+))
+);

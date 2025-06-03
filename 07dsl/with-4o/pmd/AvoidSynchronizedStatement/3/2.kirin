@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain synchronizedBlock synchronizedblock_1 where and(
+synchronizedblock_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name match "(?i).*cooldown.*update.*",
+functioncall_1.name == "add"
+),
+synchronizedblock_1.lock.name match "(?i).*(Conf|ToUpdate|CooldownConf)$"
+);

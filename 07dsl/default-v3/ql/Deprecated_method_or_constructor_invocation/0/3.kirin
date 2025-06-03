@@ -1,0 +1,2 @@
+functionDeclaration functiondeclaration_1 where
+	functiondeclaration_1.name == "testTransformAndFilterNone";

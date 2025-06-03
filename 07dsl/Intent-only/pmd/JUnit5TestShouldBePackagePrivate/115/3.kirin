@@ -1,0 +1,5 @@
+methodDeclaration md where
+    and(
+        md.hasAnnotation("Test"),
+        md.accessModifier == "public"
+    );

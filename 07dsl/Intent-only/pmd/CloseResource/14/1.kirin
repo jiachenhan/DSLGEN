@@ -1,0 +1,10 @@
+methodDeclaration md where
+    and(
+        md.contain variableDeclaration vd where
+            vd.type.name == "Connection",
+        not(
+            md.contain tryWithResourceStatement twrs where
+                twrs.resources contain res where
+                    res.type.name == "Connection"
+        )
+    );

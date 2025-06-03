@@ -1,0 +1,40 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.isSynchronized,
+not(functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.condition.operand.name == "isDone",
+ifblock_1.condition.operator == "!",
+ifblock_1.condition.operand.base.base.name == "stateMachine",
+ifblock_1.condition.operand.base.name == "getState",
+ifblock_1.thenBlock contain returnStatement returnstatement_1
+)),
+not(functiondeclaration_1.body contain synchronizedBlock synchronizedblock_1 where synchronizedblock_1.body contain ifBlock ifblock_2 where and(
+ifblock_2.thenBlock contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.base.base.name == "stream",
+valuedeclaration_1.initializer.base.base.base.name == "values",
+valuedeclaration_1.initializer.base.name == "map",
+valuedeclaration_1.name == "finalTaskInfos",
+valuedeclaration_1.type.name match ".*List",
+valuedeclaration_1.initializer.base.base.base.base.name == "tasks",
+valuedeclaration_1.initializer.name == "collect",
+valuedeclaration_1.initializer.arguments contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.name == "toImmutableList"
+),
+valuedeclaration_1.initializer.base.arguments contain alias_3 where and(
+alias_3 is methodReferenceExpression,
+alias_3.name == "getTaskInfo"
+),
+valuedeclaration_1.type.generics contain alias_4 where alias_4.name match ".*TaskInfo"
+),
+ifblock_2.condition.lhs.base.name == "tasksWithFinalInfo",
+ifblock_2.thenBlock contain functionCall functioncall_1 where and(
+functioncall_1.base.name == "stateMachine",
+functioncall_1.arguments contain alias_1 where alias_1.name == "finalTaskInfos",
+functioncall_1.name == "setAllTasksFinal"
+),
+ifblock_2.condition.rhs.name == "size",
+ifblock_2.condition.operator == "==",
+ifblock_2.condition.lhs.name == "size",
+ifblock_2.condition.rhs.base.name == "allTasks"
+))
+);

@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain methodReferenceExpression methodreferenceexpression_1 where methodreferenceexpression_1.name match "(parseInt|valueOf|parseLong|parseShort|parseByte|parseDouble|parseFloat)",
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.name == "map"
+);

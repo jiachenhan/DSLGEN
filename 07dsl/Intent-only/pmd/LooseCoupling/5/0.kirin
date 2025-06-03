@@ -1,0 +1,6 @@
+variableDeclaration vd where
+    and(
+        vd.type.name == "ArrayList",
+        vd.initializer is objectCreationExpression where
+            name == "ArrayList"
+    );

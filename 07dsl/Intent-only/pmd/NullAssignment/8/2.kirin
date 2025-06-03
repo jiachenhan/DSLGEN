@@ -1,0 +1,7 @@
+assignStatement as where
+    and(
+        as.rhs == null,
+        not(
+            as.lhs is functionCall
+        )
+    );

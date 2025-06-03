@@ -1,0 +1,13 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.type.name match ".*FileOutputStream",
+valuedeclaration_1.name match "(?i).*file(output)?stream.*",
+valuedeclaration_1.type.name match ".*FileOutputStream"
+),
+ifblock_1.thenBlock contain functionCall functioncall_1 where and(
+functioncall_1.base.name match "(?i).*(OutputStream)$",
+functioncall_1.name == "close"
+),
+ifblock_1.thenBlock contain functionCall functioncall_2 where functioncall_2.base.name match "(?i).*(outputStream|stream)$",
+not(ifblock_1.thenBlock contain tryWithResources trywithresources_1 where trywithresources_1.resources contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*(?i).*(stream)$")
+);

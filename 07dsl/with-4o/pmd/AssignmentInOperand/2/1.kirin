@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain ternaryOperation ternaryoperation_1,
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where binaryoperation_1.operator == "="
+);

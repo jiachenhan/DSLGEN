@@ -1,0 +1,16 @@
+methodDeclaration md where
+    and(
+        md.annotations contain annotation where
+            annotation.name == "Test",
+        not(
+            md.body contain functionCall fc where
+                and(
+                    fc.name startWith "assert",
+                    fc.base.name match "Assertions"
+                )
+            ),
+        not(
+            md.body contain functionCall fc where
+                fc.name == "fail"
+            )
+    );

@@ -1,0 +1,7 @@
+objectCreationExpression raf where
+    and(
+        raf.name == "RandomAccessFile",
+        not(
+            raf in tryWithResources
+        )
+    );

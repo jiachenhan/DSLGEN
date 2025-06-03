@@ -1,0 +1,6 @@
+tryCatchBlock tc where
+    tc.catchClauses contain catchClause cc where
+        and(
+            cc.body.size() == 0,
+            not(cc.parameter.name == "ignored")
+        );

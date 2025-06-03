@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain castExpression castexpression_1 where and(
+castexpression_1.castType.name match ".*(?i).*(Key)$",
+castexpression_1.operand.name match "(?i)^o$"
+),
+functiondeclaration_1.name == "equals"
+);

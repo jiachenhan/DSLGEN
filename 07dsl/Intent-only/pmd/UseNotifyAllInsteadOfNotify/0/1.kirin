@@ -1,0 +1,6 @@
+functionCall fc where
+    and(
+        fc.base is VariableAccess where
+            name == "this",
+        fc.name == "notify"
+    );

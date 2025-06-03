@@ -1,0 +1,6 @@
+variableDeclaration vd where
+    and(
+        vd.type.name == "ImmutableMap",
+        vd.type.arguments[0].name == "String",
+        vd.type.arguments[1].name == "Object"
+    );

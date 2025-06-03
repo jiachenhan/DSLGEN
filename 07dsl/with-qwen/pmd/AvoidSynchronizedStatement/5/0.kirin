@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain synchronizedBlock synchronizedblock_1,
+not(functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.base.name match "(?i)lock$")
+);

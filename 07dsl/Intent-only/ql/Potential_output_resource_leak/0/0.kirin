@@ -1,0 +1,13 @@
+tryStatement ts where
+    ts.resources contain resource where
+        and(
+            resource is objectCreationExpression,
+            resource.name == "FileWriter",
+            not(
+                ts.resources contain resource2 where
+                    and(
+                        resource2 is variableDeclaration,
+                        resource2.name == "fileWriter"
+                    )
+            )
+        );

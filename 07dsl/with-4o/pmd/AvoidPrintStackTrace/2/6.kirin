@@ -1,0 +1,13 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name match "(?i)^\w+$",
+functioncall_1.name == "printStackTrace"
+),
+not(functiondeclaration_1 contain annotation annotation_1 where and(
+annotation_1.name == "Operation",
+annotation_1.annoMembers contain annoMember annomember_1 where and(
+annomember_1.annoValue.value == "修改密码",
+annomember_1.name == "summary"
+)
+))
+);

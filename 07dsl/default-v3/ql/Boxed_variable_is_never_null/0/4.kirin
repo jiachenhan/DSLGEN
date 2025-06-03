@@ -1,0 +1,3 @@
+functionDeclaration functiondeclaration_1 where
+	functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where
+		valuedeclaration_1.type.name match ".*(?i)(Integer|Long|Short|Byte|Float|Double|Boolean|Character)";

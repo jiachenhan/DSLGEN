@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.name == "getResourceAsStream",
+valuedeclaration_1.type.name match ".*InputStream"
+),
+not(functiondeclaration_1.body contain tryWithResources trywithresources_1 where trywithresources_1.resources contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*(?i)(inputstream|reader)$")
+);

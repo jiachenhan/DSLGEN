@@ -1,0 +1,13 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.lhs.name match "(?i).*exec.*",
+binaryoperation_1.rhs.name match "(?i).*(Exec)$",
+binaryoperation_1.operator == "=="
+),
+functiondeclaration_1.body contain binaryOperation binaryoperation_2 where binaryoperation_2.operator == "==",
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.arguments contain alias_1 where and(
+alias_1 is binaryOperation,
+alias_1.operator == "=="
+),
+functiondeclaration_1.body contain functionCall functioncall_2 where functioncall_2.name == "assertFalse"
+);

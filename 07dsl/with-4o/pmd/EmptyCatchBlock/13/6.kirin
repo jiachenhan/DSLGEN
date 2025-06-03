@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where not(catchblock_1.body contain functionCall functioncall_1 where functioncall_1.base.base.name == "Thread"),
+not(functiondeclaration_1 contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.type.name match "boolean",
+valuedeclaration_1.name == "force"
+))
+);

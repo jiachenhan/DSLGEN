@@ -1,0 +1,9 @@
+tryCatch tc where
+    tc.catchClauses contain catchClause cc where
+        and(
+            cc.exceptionType.name == "NullPointerException",
+            not(
+                cc.parent.parent is functionDeclaration fd where
+                    fd.name == "assertThrows"
+            )
+        );

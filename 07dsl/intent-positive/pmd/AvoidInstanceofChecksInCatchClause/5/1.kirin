@@ -1,0 +1,1 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain catchBlock catchblock_1 where catchblock_1.body contain instanceofExpression instanceofexpression_1 where instanceofexpression_1.rhs.name match ".*(?i).*RuntimeException";

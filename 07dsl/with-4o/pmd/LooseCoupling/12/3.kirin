@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.generics contain alias_1 where alias_1.name match ".*(?i).*Concurrent.*Map$",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*ConcurrentHashMap"
+);

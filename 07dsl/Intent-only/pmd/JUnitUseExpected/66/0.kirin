@@ -1,0 +1,13 @@
+functionDeclaration fd where
+    and(
+        fd.name startWith "test",
+        fd contain tryStatement ts where
+            ts contain functionCall fc where
+                fc.name == "fail",
+        not(
+            fd.annotations contain annotation where
+                annotation.name == "Test" and
+                annotation.arguments contain arg where
+                    arg.name == "expected"
+        )
+    );

@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.annotations contain annotation annotation_1 where annotation_1.name match "(@Test|@org\.junit\.jupiter\.api\.Test)",
+functiondeclaration_1.isPublic
+);

@@ -1,0 +1,5 @@
+variableDeclaration vd where
+    and(
+        vd.type.name == "ArrayList",
+        vd.type isnot interfaceType
+    );

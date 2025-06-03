@@ -1,0 +1,20 @@
+functionDeclaration fd where
+    and(
+        fd.name == "roundDown",
+        fd.parameters.size() == 2,
+        fd.parameters[0].type.name == "java.lang.Number",
+        fd.parameters[1].type.name == "int",
+        fd.body contain functionCall fc where
+            and(
+                fc.name == "roundDown",
+                fc.arguments.size() == 2,
+                fc.arguments[0] is functionCall fc2 where
+                    and(
+                        fc2.name == "toBigDecimal",
+                        fc2.arguments[0] is VariableAccess va where
+                            va.name == "number"
+                    ),
+                fc.arguments[1] is VariableAccess va where
+                    va.name == "scale"
+            )
+    );

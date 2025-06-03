@@ -1,0 +1,3 @@
+tryCatchBlock tc where
+    tc.catchClauses contain catchClause cc where
+        cc.body.size() == 0;

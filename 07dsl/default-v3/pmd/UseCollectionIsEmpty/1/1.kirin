@@ -1,0 +1,19 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.lhs.name == "size",
+binaryoperation_1.rhs.value == 0
+),
+not(functiondeclaration_1 contain annotation annotation_1 where and(
+annotation_1.annoMembers contain initArrayExpression initarrayexpression_1 where and(
+initarrayexpression_1.elements contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == "squid:S3776"
+),
+initarrayexpression_1.elements contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == "squid:S107"
+)
+),
+annotation_1.name == "SuppressWarnings"
+))
+);

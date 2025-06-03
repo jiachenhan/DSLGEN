@@ -1,0 +1,1 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionDeclaration functiondeclaration_2 where not(functiondeclaration_2 contain annotation annotation_1 where annotation_1.name == "Override");

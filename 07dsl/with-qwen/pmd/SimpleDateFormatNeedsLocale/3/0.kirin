@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*SimpleDateFormat",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.initializer.arguments contain alias_1 where and(
+alias_1 is objectCreationExpression,
+alias_1.type.name match ".*SimpleDateFormat"
+)
+);

@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain catchBlock catchblock_1 where and(
+catchblock_1.body contain throwStatement throwstatement_1 where throwstatement_1.operand.type.name match ".*EndpointCertificateException",
+catchblock_1.parameters contain alias_1 where alias_1 is valueDeclaration
+);

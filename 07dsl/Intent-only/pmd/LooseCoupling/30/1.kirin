@@ -1,0 +1,3 @@
+methodDeclaration md where
+    md.parameters contain param where
+        param.type.name == "HashMap";

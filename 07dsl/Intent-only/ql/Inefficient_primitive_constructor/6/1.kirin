@@ -1,0 +1,9 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "Float",
+        oce.arguments[0] arg where
+            or(
+                arg is LiteralExpression,
+                arg.value == "0.0"
+            )
+    );

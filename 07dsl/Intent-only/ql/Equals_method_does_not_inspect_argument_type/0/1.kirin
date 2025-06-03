@@ -1,0 +1,13 @@
+methodDeclaration md where
+    and(
+        md.name == "equals",
+        md.parameters.size() == 1,
+        md.parameters[0].type.name == "java.lang.Object",
+        not(
+            md.body contain instanceofExpression where
+                and(
+                    instanceofExpression.expression is md.parameters[0],
+                    instanceofExpression.type.name == "ArrayCacheKey"
+                )
+        )
+    );

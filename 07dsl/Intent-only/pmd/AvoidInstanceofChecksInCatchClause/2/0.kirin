@@ -1,0 +1,9 @@
+tryStatement ts where
+    ts.catchClauses contain catchClause cc where
+        and(
+            cc.exceptionType.name == "Throwable",
+            cc.block contain ifStatement ifs where
+                ifs.condition contain instanceofExpression ie where
+                    ie.expression is VariableAccess va where
+                        va.name == "e"
+        );

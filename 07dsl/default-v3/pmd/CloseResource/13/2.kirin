@@ -1,0 +1,9 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1,
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2,
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_3 where and(
+valuedeclaration_3.initializer.value == "select id,name from t_ds_worker_group",
+valuedeclaration_3.name == "sql",
+valuedeclaration_3.type.name match ".*String"
+))
+);

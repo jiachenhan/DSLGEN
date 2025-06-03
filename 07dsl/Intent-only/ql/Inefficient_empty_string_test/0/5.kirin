@@ -1,0 +1,7 @@
+functionCall fc where
+    and(
+        fc.name == "equals",
+        fc.arguments[0] arg where
+            arg is StringLiteral,
+            arg.value == ""
+    );

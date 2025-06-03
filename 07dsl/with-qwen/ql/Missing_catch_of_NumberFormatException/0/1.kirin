@@ -1,0 +1,18 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.name match "(getString|getNumeric|getLong|getInt|getDouble|getFloat)"
+),
+functioncall_1.base.name match "(Long|Integer|Double|Float|Short|Byte)",
+functioncall_1.name match "(parseLong|parseInt|parseDouble|parseFloat)"
+),
+functiondeclaration_1.body contain functionCall functioncall_2 where and(
+functioncall_2.arguments contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.name match "(?i).*getString.*"
+),
+functioncall_2.base.name == "Long",
+functioncall_2.name match "(parseInt|parseLong|parseDouble|parseFloat)"
+)
+);

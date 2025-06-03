@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.condition.lhs.operator == "=",
+not(ifblock_1 contain unaryOperation unaryoperation_1 where unaryoperation_1.operand.base.name match "(?i)(ff|rmdir|errno)")
+);

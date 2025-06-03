@@ -1,0 +1,22 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.initializer.value match "(\b25[0-5]|\b2[0-4][0-9]|\b1[0-9]{2}|\b[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9]\b)",
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where and(
+valuedeclaration_2.type.name match ".*HttpServletRequest",
+valuedeclaration_2.initializer.name == "createMockRequest",
+valuedeclaration_2.initializer.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == true
+),
+valuedeclaration_2.name == "request"
+)),
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_2 where alias_2.name match "(?i).*(info|audit|data)$",
+functioncall_1.arguments contain alias_3 where and(
+alias_3 is functionCall,
+alias_3.base.name == "auditInfoCapture",
+alias_3.name == "getValue"
+),
+functioncall_1.name == "assertEquals",
+functioncall_1.base.name == "Assert"
+))
+);

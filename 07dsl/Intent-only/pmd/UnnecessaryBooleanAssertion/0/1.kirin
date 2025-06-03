@@ -1,0 +1,14 @@
+functionCall fc where
+    and(
+        fc.base.name == "Assert",
+        or(
+            fc.name == "assertTrue",
+            fc.name == "assertFalse"
+        ),
+        fc.arguments[0] arg where
+            or(
+                arg is BooleanConstant,
+                arg.value == true,
+                arg.value == false
+            )
+    );

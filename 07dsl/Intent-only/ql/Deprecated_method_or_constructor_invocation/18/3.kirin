@@ -1,0 +1,6 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "Integer",
+        oce.arguments[0] arg where
+            arg is VariableAccess
+    );

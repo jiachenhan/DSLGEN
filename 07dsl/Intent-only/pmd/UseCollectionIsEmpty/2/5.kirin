@@ -1,0 +1,27 @@
+methodCall mc where
+    and(
+        mc.name == "size",
+        mc.parent is ifStatement where
+            or(
+                mc.parent.condition contain binaryExpression be where
+                    and(
+                        be.leftOperand is mc,
+                        or(
+                            be.operator == "==",
+                            be.operator == "!=",
+                            be.operator == ">",
+                            be.operator == "<"
+                        ),
+                        be.rightOperand is literal where
+                            or(
+                                be.rightOperand.value == "0",
+                                be.rightOperand.value == "1"
+                            )
+                    ),
+                mc.parent.condition contain unaryExpression ue where
+                    and(
+                        ue.operator == "!",
+                        ue.operand is mc
+                    )
+            )
+    );

@@ -1,0 +1,10 @@
+binaryExpression be where
+    and(
+        be.operator == "==",
+        be.leftOperand is VariableAccess,
+        be.rightOperand is VariableAccess,
+        not(
+            be.leftOperand.type.name == "boolean",
+            be.rightOperand.type.name == "boolean"
+        )
+    );

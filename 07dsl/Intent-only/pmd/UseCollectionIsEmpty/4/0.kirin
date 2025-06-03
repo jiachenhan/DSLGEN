@@ -1,0 +1,26 @@
+functionCall fc where
+    and(
+        fc.name == "size",
+        or(
+            fc in binaryExpression where
+                and(
+                    binaryExpression.operator == "==",
+                    binaryExpression.rhs == 0
+                ),
+            fc in binaryExpression where
+                and(
+                    binaryExpression.operator == "!=",
+                    binaryExpression.rhs == 0
+                ),
+            fc in binaryExpression where
+                and(
+                    binaryExpression.operator == ">",
+                    binaryExpression.rhs == 0
+                ),
+            fc in binaryExpression where
+                and(
+                    binaryExpression.operator == "<",
+                    binaryExpression.rhs == 1
+                )
+        )
+    );

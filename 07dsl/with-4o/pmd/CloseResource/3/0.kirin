@@ -1,0 +1,12 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.name == "getConnection",
+valuedeclaration_1.type.name match ".*(?i).*(connection)$",
+valuedeclaration_1.name match "(?i).*connection.*"
+),
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*Statement",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_3 where and(
+valuedeclaration_3.type.name match ".*ResultSet",
+valuedeclaration_3.name match "(?i).*QueryResult.*"
+)
+);

@@ -1,0 +1,6 @@
+methodCallExpression mc where
+    and(
+        mc.name == "equalsIgnoreCase",
+        mc.arguments[0] arg where
+            arg is VariableAccess
+    );

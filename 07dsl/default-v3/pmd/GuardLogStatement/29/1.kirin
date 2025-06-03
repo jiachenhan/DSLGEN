@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name match "(?i).*(log|logger|logging)",
+functioncall_1.name match "(?i).*(info|debug|warn|error|trace)",
+functioncall_1 notIn ifBlock ifblock_1 where and(
+ifblock_1.condition.name match "(?i)(isDebugEnabled|isTraceEnabled|isInfoEnabled|isWarnEnabled|isErrorEnabled)",
+ifblock_1.thenBlock contain functionCall functioncall_2 where functioncall_2.name match "(?i)(debug|info|warn|error|trace)"
+)
+);

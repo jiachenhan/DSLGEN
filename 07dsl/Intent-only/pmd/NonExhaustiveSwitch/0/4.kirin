@@ -1,0 +1,5 @@
+switchStatement ss where
+    not(
+        ss.cases contain caseBlock where
+            caseBlock.isDefault
+    );

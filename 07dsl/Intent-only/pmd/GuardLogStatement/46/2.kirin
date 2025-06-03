@@ -1,0 +1,19 @@
+functionCall fc where
+    and(
+        fc.base.name match "LOG",
+        or(
+            fc.name == "info",
+            fc.name == "debug",
+            fc.name == "warn"
+        ),
+        not(
+            fc in ifStatement where
+                and(
+                    condition is functionCall where
+                        and(
+                            base.name match "LOG",
+                            name == "isDebugEnabled"
+                        )
+                )
+        )
+    );

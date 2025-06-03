@@ -1,0 +1,7 @@
+functionDeclaration fd where
+    fd.parameters contain param where
+        param.name == "columnStr"
+    and
+    fd contain assignStatement as1 where
+        as1.lhs is VariableAccess va where
+            va.name == "columnStr";

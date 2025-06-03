@@ -1,0 +1,14 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name == "out",
+functioncall_1.name match "(println|print)"
+),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.lhs.value == "SELECT *
+",
+valuedeclaration_1.initializer.rhs.value == "FROM table1 t1
+",
+valuedeclaration_1.type.name match ".*String",
+valuedeclaration_1.name == "sql"
+))
+);

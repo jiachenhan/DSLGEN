@@ -1,0 +1,6 @@
+functionDeclaration functiondeclaration_1 where
+	functiondeclaration_1.body contain functionCall functioncall_1 where
+		and(
+			functioncall_1.base.name match "(Integer|Long|Double|Float)",
+			functioncall_1.name match ".*parse(Int|Long|Double|Float)"
+		);

@@ -1,0 +1,31 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.isSynchronized,
+not(functiondeclaration_1.body contain synchronizedBlock synchronizedblock_1 where synchronizedblock_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain functionCall functioncall_1 where and(
+functioncall_1.name == "unexportObject",
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == true
+),
+functioncall_1.arguments contain alias_3 where alias_3 is thisExpression
+),
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where catchblock_1.parameters contain alias_2 where and(
+alias_2 is valueDeclaration,
+alias_2.type.name match ".*NoSuchObjectException",
+alias_2.name == "e"
+)
+),
+ifblock_1.thenBlock contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.rhs.value == true,
+binaryoperation_1.lhs.name == "disposed",
+binaryoperation_1.operator == "="
+),
+ifblock_1.thenBlock contain functionCall functioncall_2 where and(
+functioncall_2.base.name == "bufferFile",
+functioncall_2.name == "dispose"
+),
+ifblock_1.condition.operand.name == "disposed",
+ifblock_1.condition.operator == "!"
+))
+);

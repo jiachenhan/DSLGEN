@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.type.name match "java.util.Random",
+functioncall_1.name == "nextInt"
+);

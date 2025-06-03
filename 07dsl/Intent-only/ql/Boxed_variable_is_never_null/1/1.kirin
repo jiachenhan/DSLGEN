@@ -1,0 +1,14 @@
+variableDeclaration vd where
+    and(
+        vd.type.name == "Boolean",
+        not(
+            vd.initializer == null
+        ),
+        not(
+            vd in functionCall where
+                and(
+                    fc.name == "checkRelation",
+                    fc.arguments[3].type.name == "Boolean"
+                )
+        )
+    );

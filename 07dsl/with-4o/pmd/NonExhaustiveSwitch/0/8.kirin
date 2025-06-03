@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain switchBlock switchblock_1 where and(
+not(switchblock_1 contain functionCall functioncall_1),
+not(switchblock_1 contain defaultStatement)
+);

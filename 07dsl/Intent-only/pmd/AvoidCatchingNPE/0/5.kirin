@@ -1,0 +1,9 @@
+tryCatch tc where
+    tc.catchClauses contain catchClause cc where
+        and(
+            cc.exceptionType.name == "NullPointerException",
+            not(
+                cc.block contain functionCall fc where
+                    fc.name == "assertThrows"
+            )
+        );

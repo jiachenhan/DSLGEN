@@ -1,0 +1,6 @@
+tryCatchBlock tcb where
+    tcb.catchClauses contain catchClause cc where
+        and(
+            cc.body.size() == 0,
+            cc.exceptionType.name == "ParseException"
+        );

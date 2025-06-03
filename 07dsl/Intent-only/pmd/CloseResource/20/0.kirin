@@ -1,0 +1,8 @@
+variableDeclaration vd where
+    and(
+        vd.type.name == "Statement",
+        vd.initializer is objectCreationExpression,
+        not(
+            vd in tryWithResourcesStatement
+        )
+    );

@@ -1,0 +1,10 @@
+functionDeclaration fd where
+    and(
+        fd.modifiers contain modifier where
+            modifier.name == "synchronized",
+        not(
+            fd.contain block where
+                block.statements contain statement where
+                    statement is synchronizedStatement
+        )
+    );

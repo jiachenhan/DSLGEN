@@ -1,0 +1,19 @@
+functionCall fc where
+    and(
+        fc.name == "size",
+        fc.parent is ifStatement where
+            or(
+                fc.parent.condition contain binaryExpression where
+                    and(
+                        binaryExpression.leftOperand is fc,
+                        or(
+                            binaryExpression.operator == ">",
+                            binaryExpression.operator == "<",
+                            binaryExpression.operator == "==",
+                            binaryExpression.operator == "!="
+                        ),
+                        binaryExpression.rightOperand is literal where
+                            binaryExpression.rightOperand.value == "0"
+                    )
+            )
+    );

@@ -1,0 +1,6 @@
+methodCall mc where
+    and(
+        mc.name == "printStackTrace",
+        mc.base is VariableAccess where
+            base.name == "e"
+    );

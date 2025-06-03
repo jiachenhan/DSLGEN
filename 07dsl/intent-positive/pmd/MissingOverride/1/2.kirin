@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain anonymousInnerClassExpression anonymousinnerclassexpression_1 where anonymousinnerclassexpression_1.anonymousClassBody contain functionDeclaration functiondeclaration_2 where functiondeclaration_2.name == "run",
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*Runnable"
+);

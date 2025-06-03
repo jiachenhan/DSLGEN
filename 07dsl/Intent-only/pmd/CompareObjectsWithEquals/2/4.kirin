@@ -1,0 +1,15 @@
+binaryExpression be where
+    and(
+        or(
+            be.operator == "==",
+            be.operator == "!="
+        ),
+        be.lhs is VariableAccess,
+        be.rhs is VariableAccess,
+        not(
+            and(
+                be.lhs is functionCall where name == "equals",
+                be.rhs is VariableAccess
+            )
+        )
+    );

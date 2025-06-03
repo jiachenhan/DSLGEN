@@ -1,0 +1,1 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain returnStatement returnstatement_1 where not(returnstatement_1 contain functionCall functioncall_1 where functioncall_1.name match "(?i).*(local|scope|reference|find|search|get|fetch).*");

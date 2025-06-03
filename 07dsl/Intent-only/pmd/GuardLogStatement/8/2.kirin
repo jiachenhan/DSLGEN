@@ -1,0 +1,22 @@
+functionCall fc where
+    and(
+        fc.base.name match "LOG",
+        or(
+            fc.name == "info",
+            fc.name == "debug",
+            fc.name == "warn",
+            fc.name == "error",
+            fc.name == "trace"
+        ),
+        not(
+            fc.enclosingBlock contain ifStatement ifs where
+                and(
+                    ifs.condition is functionCall fcGuard where
+                        and(
+                            fcGuard.base.name == fc.base.name,
+                            fcGuard.name == "is" + fc.name.capitalize() + "Enabled"
+                        ),
+                    ifs.thenBlock contain fc
+                )
+        )
+    );

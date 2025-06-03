@@ -1,0 +1,9 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.rhs.base.base.name == "Runtime",
+binaryoperation_1.rhs.base.name == "getRuntime",
+binaryoperation_1.rhs.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value match "^[^/].*"
+),
+binaryoperation_1.rhs.name == "exec"
+);

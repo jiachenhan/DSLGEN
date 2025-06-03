@@ -1,0 +1,7 @@
+assignStatement as1 where
+    and(
+        as1.rhs == null,
+        not(
+            as1 in finallyBlock
+        )
+    );

@@ -1,0 +1,2 @@
+switchStatement ss where
+    not(ss.branches contain branch where branch.isDefault);

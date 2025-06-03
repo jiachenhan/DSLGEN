@@ -1,0 +1,11 @@
+methodDeclaration md where
+    md.contain forStatement fs where
+        fs.condition contain binaryExpression be where
+            and(
+                be.left is fieldAccess fa where fa.name == "rowSize",
+                be.right is variableAccess va where va.name == "i",
+                not(
+                    be.left is methodCall mc where mc.name == "getRowSize"
+                )
+            )
+);

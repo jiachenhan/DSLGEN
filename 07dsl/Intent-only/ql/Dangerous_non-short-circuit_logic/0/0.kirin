@@ -1,0 +1,10 @@
+functionDeclaration fd where
+    and(
+        fd.returnType.name == "boolean",
+        fd.body contain binaryExpression be where
+            and(
+                be.operator == "|",
+                be.leftOperand is functionCall where name == "startsWith",
+                be.rightOperand is functionCall where name == "startsWith"
+            )
+    );

@@ -1,0 +1,22 @@
+expressionStatement es where
+    es.expression e where
+        and(
+            e is binaryExpression,
+            or(
+                e.operator == "==",
+                e.operator == "!=",
+                e.operator == ">",
+                e.operator == "<"
+            ),
+            e.leftOperand lo where
+                and(
+                    lo is functionCall,
+                    lo.name == "size",
+                    lo.base is VariableAccess
+                ),
+            e.rightOperand ro where
+                or(
+                    ro is numberConstant,
+                    ro.value == 0
+                )
+        );

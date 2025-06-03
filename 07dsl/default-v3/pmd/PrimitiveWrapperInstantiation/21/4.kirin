@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*(?i).*(Integer|Long|Short|Byte|Float|Double|Character|Boolean)$",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*(?i)(Long|Integer|Short|Byte|Character|Double|Float)"
+);

@@ -1,0 +1,20 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain switchBlock switchblock_1 where switchblock_1.body contain switchBlock switchblock_2 where and(
+not(switchblock_2 contain functionCall functioncall_1 where functioncall_1.base.name match "(?i)(log|logger)"),
+not(switchblock_2 contain defaultStatement),
+not(switchblock_2 contain breakStatement breakstatement_1)
+),
+not(functiondeclaration_1 contain annotation annotation_1 where and(
+annotation_1.annoMembers contain initArrayExpression initarrayexpression_1 where and(
+initarrayexpression_1.elements contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == "squid:S6541"
+),
+initarrayexpression_1.elements contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == "squid:S3776"
+)
+),
+annotation_1.name == "SuppressWarnings"
+))
+);

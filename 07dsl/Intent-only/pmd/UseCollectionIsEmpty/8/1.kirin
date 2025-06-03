@@ -1,0 +1,48 @@
+whileStatement ws where
+    ws.condition contain expression expr where
+        or(
+            expr is binaryExpression where
+                and(
+                    expr.operator == "==",
+                    expr.left is functionCall where
+                        and(
+                            expr.left.name == "size",
+                            expr.left.base is variableAccess
+                        ),
+                    expr.right is numericConstant where
+                        expr.right.value == 0
+                ),
+            expr is binaryExpression where
+                and(
+                    expr.operator == "!=",
+                    expr.left is functionCall where
+                        and(
+                            expr.left.name == "size",
+                            expr.left.base is variableAccess
+                        ),
+                    expr.right is numericConstant where
+                        expr.right.value == 0
+                ),
+            expr is binaryExpression where
+                and(
+                    expr.operator == ">",
+                    expr.left is functionCall where
+                        and(
+                            expr.left.name == "size",
+                            expr.left.base is variableAccess
+                        ),
+                    expr.right is numericConstant where
+                        expr.right.value == 0
+                ),
+            expr is binaryExpression where
+                and(
+                    expr.operator == "<",
+                    expr.left is functionCall where
+                        and(
+                            expr.left.name == "size",
+                            expr.left.base is variableAccess
+                        ),
+                    expr.right is numericConstant where
+                        expr.right.value == 1
+                )
+        );

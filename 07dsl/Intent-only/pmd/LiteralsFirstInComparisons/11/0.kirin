@@ -1,0 +1,13 @@
+methodCallExpression mc where
+    and(
+        mc.name == "equals",
+        mc.arguments[0] arg where
+            or(
+                arg is VariableAccess,
+                arg is FieldAccess,
+                arg is MethodCallExpression,
+                not(
+                    arg is StringLiteral
+                )
+            )
+    );

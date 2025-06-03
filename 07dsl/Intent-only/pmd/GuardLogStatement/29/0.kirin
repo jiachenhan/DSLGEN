@@ -1,0 +1,16 @@
+functionCall fc where
+    and(
+        fc.base.name match "log.*",
+        not(
+            fc in ifStatement where
+                and(
+                    fc.enclosingFunction ef where
+                        ef contain functionCall guardCall where
+                            and(
+                                guardCall.base.name match "log.*",
+                                guardCall.name == "isDebugEnabled",
+                                guardCall isnot fc
+                            )
+                )
+        )
+    );

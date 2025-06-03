@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1,
+functiondeclaration_1.body contain binaryOperation binaryoperation_2,
+functiondeclaration_1.body contain fieldAccess fieldaccess_1,
+functiondeclaration_1.body contain binaryOperation binaryoperation_3,
+functiondeclaration_1.body contain fieldAccess fieldaccess_2,
+functiondeclaration_1.body contain binaryOperation binaryoperation_4,
+functiondeclaration_1.body contain binaryOperation binaryoperation_5,
+functiondeclaration_1.body contain binaryOperation binaryoperation_6
+);

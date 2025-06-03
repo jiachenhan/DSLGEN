@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain returnStatement returnstatement_1,
+functiondeclaration_1.body contain nullLiteral nullliteral_1
+);

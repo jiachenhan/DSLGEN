@@ -1,0 +1,10 @@
+functionDeclaration fd where
+    and(
+        fd.annotations contain ann where ann.name == "Test",
+        fd.body contain tryBlock tb where
+            tb.catchClauses.size() > 0,
+        not(
+            fd.annotations contain ann2 where ann2.name == "Test" and
+                ann2.arguments contain arg where arg.name == "expected"
+        )
+    );

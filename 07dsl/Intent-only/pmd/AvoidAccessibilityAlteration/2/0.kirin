@@ -1,0 +1,7 @@
+methodCall mc where
+    and(
+        mc.name == "setAccessible",
+        mc.base.type.name == "java.lang.reflect.Field",
+        mc.arguments.size() == 1,
+        mc.arguments[0].value == true
+    );

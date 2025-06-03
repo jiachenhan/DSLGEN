@@ -1,0 +1,6 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*(?i).*List$",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*(?i).*List$",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_3 where valuedeclaration_3.type.name match ".*(?i).*List$",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_4 where valuedeclaration_4.type.name match ".*(ArrayList|HashSet|HashMap|LinkedList|TreeSet|TreeMap)"
+);

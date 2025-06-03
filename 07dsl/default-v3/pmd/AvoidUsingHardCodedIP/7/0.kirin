@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain literal literal_1 where literal_1.value match "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b",
+functiondeclaration_1.body contain literal literal_2 where literal_2.value match "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b"
+);

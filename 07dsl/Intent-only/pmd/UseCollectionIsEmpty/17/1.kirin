@@ -1,0 +1,31 @@
+methodCall mc where
+    and(
+        mc.name == "size",
+        mc.enclosingBlock contain ifStatement ifs where
+            or(
+                ifs.condition contain binaryExpression be where
+                    and(
+                        be.leftOperand is mc,
+                        or(
+                            be.operator == "==",
+                            be.operator == "!=",
+                            be.operator == ">",
+                            be.operator == "<"
+                        ),
+                        be.rightOperand is numberConstant where
+                            value == 0
+                    ),
+                ifs.condition contain binaryExpression be where
+                    and(
+                        be.rightOperand is mc,
+                        or(
+                            be.operator == "==",
+                            be.operator == "!=",
+                            be.operator == ">",
+                            be.operator == "<"
+                        ),
+                        be.leftOperand is numberConstant where
+                            value == 0
+                    )
+            )
+    );

@@ -1,0 +1,6 @@
+functionDeclaration fd where
+    and(
+        fd.returnType.name == "Map",
+        fd contain returnStatement rs where
+            rs.returnValue == null
+    );

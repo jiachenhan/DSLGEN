@@ -1,0 +1,7 @@
+forStatement fs where
+    fs contain assignStatement as where
+        and(
+            as.lhs is variableAccess va where
+                va.name == fs.variable.name,
+            as.rhs is objectCreationExpression
+        );

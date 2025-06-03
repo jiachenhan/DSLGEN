@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain ifBlock ifblock_1 where ifblock_1.condition.operator == "&&",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1
+);

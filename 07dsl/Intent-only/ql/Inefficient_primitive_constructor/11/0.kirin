@@ -1,0 +1,11 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "Integer",
+        not(
+            oce.enclosingFunction contain functionCall fc where
+                and(
+                    fc.name == "valueOf",
+                    fc.base.name == "Integer"
+                )
+        )
+    );

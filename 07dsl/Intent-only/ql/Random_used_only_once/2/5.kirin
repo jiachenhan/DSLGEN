@@ -1,0 +1,7 @@
+objectCreationExpression oc where
+    and(
+        oc.name == "Random",
+        oc in methodDeclaration md where
+            md contain variableAccess va where
+                va.name == "random"
+    );

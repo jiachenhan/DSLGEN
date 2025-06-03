@@ -1,0 +1,4 @@
+switchStatement sw where
+    not(sw.cases contain case where
+        case.isDefault == true
+    );

@@ -1,0 +1,12 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain switchBlock switchblock_1 where and(
+not(switchblock_1 contain throwStatement throwstatement_1 where and(
+throwstatement_1.operand.type.name match ".*IllegalArgumentException",
+throwstatement_1.operand.arguments contain alias_1 where and(
+alias_1 is binaryOperation,
+alias_1.lhs.value == "Unknown CreateTriggerState: ",
+alias_1.rhs.name == "state",
+alias_1.operator == "+"
+)
+)),
+not(switchblock_1 contain defaultStatement)
+);

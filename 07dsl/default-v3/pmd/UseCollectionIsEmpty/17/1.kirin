@@ -1,0 +1,22 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.lhs.lhs.name == "size",
+binaryoperation_1.lhs.rhs.value == 0,
+binaryoperation_1.lhs.operator == "==",
+not(binaryoperation_1 contain functionCall functioncall_2)
+),
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.name == "updateCols",
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.base.base.name == "columns",
+alias_1.base.name == "get",
+alias_1.name == "getName",
+alias_1.base.arguments contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == 0
+)
+),
+functioncall_1.base.name == "distribution"
+))
+);

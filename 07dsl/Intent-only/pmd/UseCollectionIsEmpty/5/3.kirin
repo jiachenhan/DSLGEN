@@ -1,0 +1,28 @@
+methodCallExpression mc where
+    and(
+        mc.name == "size",
+        mc.base is variableAccess,
+        mc.enclosingExpression enclExpr where
+            or(
+                enclExpr is binaryExpression where
+                    and(
+                        enclExpr.operator == "==",
+                        enclExpr.rightOperand == 0
+                    ),
+                enclExpr is binaryExpression where
+                    and(
+                        enclExpr.operator == "!=",
+                        enclExpr.rightOperand == 0
+                    ),
+                enclExpr is binaryExpression where
+                    and(
+                        enclExpr.operator == ">",
+                        enclExpr.rightOperand == 0
+                    ),
+                enclExpr is binaryExpression where
+                    and(
+                        enclExpr.operator == "<",
+                        enclExpr.rightOperand == 1
+                    )
+            )
+    );

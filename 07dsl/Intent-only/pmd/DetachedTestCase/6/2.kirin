@@ -1,0 +1,10 @@
+functionDeclaration fd where
+    and(
+        fd.name startWith "test",
+        not(
+            fd.annotations contain annotation where
+                annotation.name == "Test"
+        ),
+        fd.contain functionCall fc where
+            fc.name == "assertEquals"
+    );

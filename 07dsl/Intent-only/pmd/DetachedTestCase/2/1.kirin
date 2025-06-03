@@ -1,0 +1,10 @@
+functionDeclaration fd where
+    and(
+        fd.name startWith "test",
+        fd.parameters.size() == 0,
+        fd.returnType.name == "void",
+        not(
+            fd.annotations contain annotation where
+                annotation.name == "Test"
+        )
+    );

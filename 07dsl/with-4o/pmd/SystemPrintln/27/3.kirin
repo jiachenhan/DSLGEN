@@ -1,0 +1,15 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.base.name == "out",
+functioncall_1.name == "println"
+),
+functiondeclaration_1.body contain functionCall functioncall_2 where and(
+functioncall_2.base.name == "out",
+functioncall_2.name == "println"
+),
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.type.name match "boolean",
+valuedeclaration_1.name == "generatedKey",
+valuedeclaration_1.initializer.value == false
+))
+);

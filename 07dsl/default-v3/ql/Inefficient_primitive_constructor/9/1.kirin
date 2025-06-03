@@ -1,0 +1,28 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*(?i).*(Integer|Boolean|Double|Float|Long|Short|Byte)",
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.arguments contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.base.name == "LocalDateTime",
+alias_2.name == "now"
+),
+alias_1.name == "isSimpleType",
+alias_1.base.name == "Log4J2PluginLoggerAdapter"
+),
+functioncall_1.name == "assertTrue"
+)),
+not(functiondeclaration_1.body contain functionCall functioncall_2 where and(
+functioncall_2.arguments contain alias_3 where and(
+alias_3 is functionCall,
+alias_3.arguments contain alias_4 where and(
+alias_4 is literal,
+alias_4.value == 1
+),
+alias_3.name == "isSimpleType",
+alias_3.base.name match "(?i).*(logger|adapter|plugin).*"
+),
+functioncall_2.name == "assertTrue"
+))
+);

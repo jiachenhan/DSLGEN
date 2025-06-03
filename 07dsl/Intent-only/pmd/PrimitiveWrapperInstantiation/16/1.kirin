@@ -1,0 +1,7 @@
+objectCreationExpression oc where
+    and(
+        oc.name == "Integer",
+        oc.arguments.size() == 1,
+        oc.arguments[0] arg where
+            arg is VariableAccess
+    );

@@ -1,0 +1,11 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md contain tryStatement ts where
+            ts contain functionCall fc where
+                fc.name == "fail",
+        not(
+            md.annotations contain annotation where
+                annotation.name == "Test"
+        )
+    );

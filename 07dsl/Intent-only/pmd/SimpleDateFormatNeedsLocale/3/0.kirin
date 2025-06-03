@@ -1,0 +1,8 @@
+objectCreationExpression sdf where
+    and(
+        sdf.name == "SimpleDateFormat",
+        not(
+            sdf.arguments contain arg where
+                arg.type.name == "java.util.Locale"
+        )
+    );

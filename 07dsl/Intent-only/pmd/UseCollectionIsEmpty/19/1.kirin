@@ -1,0 +1,11 @@
+functionCall fc where
+    and(
+        fc.name == "size",
+        fc.parent is binaryExpression be where
+            or(
+                and(be.operator == "==", be.rightOperand == 0),
+                and(be.operator == "!=", be.rightOperand == 0),
+                and(be.operator == ">", be.rightOperand == 0),
+                and(be.operator == "<", be.rightOperand == 1)
+            )
+    );

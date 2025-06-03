@@ -1,0 +1,12 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain catchBlock catchblock_1 where and(
+catchblock_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.elseBlock contain objectCreationExpression objectcreationexpression_1,
+ifblock_1.condition.rhs.name match ".*(?i).*ServiceNotFoundException$",
+ifblock_1.condition.lhs.name match ".*"
+),
+catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.type.name match ".*Throwable",
+alias_1.name match "^[a-zA-Z_]\\w*$"
+)
+);

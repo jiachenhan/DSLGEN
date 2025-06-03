@@ -1,0 +1,1 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.annotations contain annotation annotation_1 where annotation_1.name match "(.*Theory.*)||(i?)";

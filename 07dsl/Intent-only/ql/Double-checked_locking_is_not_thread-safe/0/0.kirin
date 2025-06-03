@@ -1,0 +1,40 @@
+methodDeclaration md where
+    and(
+        md.name == "getTableEnv",
+        md.contain ifStatement if1 where
+            and(
+                if1.condition is BinaryExpression be1 where
+                    and(
+                        be1.operator == "==",
+                        be1.leftOperand is FieldAccess fa1 where
+                            fa1.name == "tEnv",
+                        be1.rightOperand is NullLiteral
+                    ),
+                if1.thenBlock contain synchronizedStatement ss where
+                    ss.block contain ifStatement if2 where
+                        and(
+                            if2.condition is BinaryExpression be2 where
+                                and(
+                                    be2.operator == "==",
+                                    be2.leftOperand is FieldAccess fa2 where
+                                        fa2.name == "tEnv",
+                                    be2.rightOperand is NullLiteral
+                                ),
+                            if2.thenBlock contain assignStatement as where
+                                and(
+                                    as.lhs is FieldAccess fa3 where
+                                        fa3.name == "tEnv",
+                                    as.rhs isnot NullLiteral
+                                )
+                        )
+            ),
+        not(
+            md.contain assignStatement as1 where
+                and(
+                    as1.lhs is VariableDeclaration vd where
+                        vd.name == "tableEnv",
+                    as1.rhs is FieldAccess fa4 where
+                        fa4.name == "tEnv"
+                )
+        )
+    );

@@ -1,0 +1,9 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.arguments contain alias_2 where and(
+alias_2 is literal,
+alias_2.value match "(?i)^(utf-?8|iso-?8859-?1)$"
+),
+alias_1.base.name == "Charset",
+alias_1.name == "forName"
+);

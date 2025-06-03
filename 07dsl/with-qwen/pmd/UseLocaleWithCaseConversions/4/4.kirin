@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.initializer.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.name match "(toUpper|toLower)Case"
+);

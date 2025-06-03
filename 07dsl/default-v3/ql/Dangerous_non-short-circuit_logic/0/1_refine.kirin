@@ -1,0 +1,19 @@
+functionDeclaration functiondeclaration_1 where
+	functiondeclaration_1.body contain binaryOperation binaryoperation_1 where
+		and(
+			binaryoperation_1.operator match "(\|)|(&)",
+			not(
+				binaryoperation_1 contain binaryOperation binaryoperation_2 where
+					and(
+						binaryoperation_2.lhs.name == "getTableTokenIfExists",
+						binaryoperation_2.lhs.arguments contain alias_1 where
+							and(
+								alias_1 is functionCall,
+								alias_1.base.name == "tableToken",
+								alias_1.name == "getTableName"
+							),
+						binaryoperation_2.lhs.base.name == "engine",
+						binaryoperation_2.operator == "=="
+					)
+			)
+		);

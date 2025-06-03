@@ -1,0 +1,21 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.operator == "=",
+not(binaryoperation_1 contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.base.name == "toUpperCase",
+alias_1.arguments contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == ""
+),
+alias_1.arguments contain alias_3 where and(
+alias_3 is literal,
+alias_3.value == " "
+),
+alias_1.name == "replace",
+alias_1.base.base.name == "columnStr"
+),
+functioncall_1.name == "valueOf",
+functioncall_1.base.name == "SqlType"
+))
+);

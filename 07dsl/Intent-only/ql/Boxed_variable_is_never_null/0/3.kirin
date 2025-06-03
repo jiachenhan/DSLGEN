@@ -1,0 +1,7 @@
+variableDeclaration vd where
+    and(
+        vd.type.name == "Integer",
+        not(
+            vd.initializer == null
+        )
+    );

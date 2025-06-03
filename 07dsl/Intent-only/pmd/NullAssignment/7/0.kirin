@@ -1,0 +1,5 @@
+assignStatement as where
+    and(
+        as.rhs == null,
+        as.lhs is VariableAccess
+    );

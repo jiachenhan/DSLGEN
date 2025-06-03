@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1,
+not(functiondeclaration_1 contain annotation annotation_1 where annotation_1.name == "SneakyThrows")
+);

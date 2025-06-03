@@ -1,0 +1,14 @@
+binaryExpression be where
+    and(
+        be.operator == "==",
+        or(
+            be.leftOperand is stringLiteral,
+            be.rightOperand is stringLiteral
+        ),
+        not(
+            and(
+                be.leftOperand is stringLiteral,
+                be.rightOperand isnot stringLiteral
+            )
+        )
+    );

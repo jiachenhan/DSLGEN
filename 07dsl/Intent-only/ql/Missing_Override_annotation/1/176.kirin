@@ -1,0 +1,10 @@
+methodDeclaration md where
+    and(
+        md.name == "toString",
+        md.isOverride == false,
+        md.enclosingClass contain methodDeclaration mdSuper where
+            and(
+                mdSuper.name == "toString",
+                mdSuper.isOverride == true
+            )
+    );

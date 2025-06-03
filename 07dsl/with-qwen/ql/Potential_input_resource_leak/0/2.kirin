@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain objectCreationExpression objectcreationexpression_1,
+not(functiondeclaration_1.body contain tryWithResources trywithresources_1 where trywithresources_1.resources contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*(BufferedInputStream|InputStream|FileInputStream|.*InputStream)")
+);

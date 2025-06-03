@@ -1,0 +1,6 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain functionCall functioncall_1 where functioncall_1.name match "(?i).*(release|close|clean|dispose|free|shutdown)Resource?",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*ResultSet",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*PreparedStatement",
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_3 where valuedeclaration_3.type.name match ".*(?i).*(Connection|Conn|DBConnection|DBConn)$"
+);

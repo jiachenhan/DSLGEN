@@ -1,0 +1,13 @@
+tryStatement ts where
+    and(
+        ts contain objectCreationExpression oce where
+            oce.name == "FileInputStream",
+        not(
+            ts contain variableDeclarationStatement vds where
+                vds.initializer is objectCreationExpression where
+                    and(
+                        name == "FileInputStream",
+                        vds in ts
+                    )
+        )
+    );

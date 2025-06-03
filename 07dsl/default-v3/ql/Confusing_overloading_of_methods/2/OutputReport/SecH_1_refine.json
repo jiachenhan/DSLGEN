@@ -1,0 +1,18 @@
+{
+  "RuleSet": {
+    "rules": {
+      "dslRule": [
+        {
+          "language": "java",
+          "id": "212B6D7F-949A-4282-8343-7D2DA6DA4E61",
+          "checker": "SecH_1_refine",
+          "checkerId": "ab86541bc74043e1bdb1e9e78e378f1f",
+          "dsl": "functionDeclaration functiondeclaration_1 where\n\tand(\n\t\tfunctiondeclaration_1.body contain functionCall functioncall_1 where\n\t\t\tfunctioncall_1.name match \"round[a-zA-Z]+\",\n\t\tfunctiondeclaration_1.parameters contain alias_1 where\n\t\t\talias_1 is valueDeclaration,\n\t\tfunctiondeclaration_1.parameters contain alias_2 where\n\t\t\talias_2 is valueDeclaration\n\t);\n",
+          "description": "规则描述信息，需用户修改",
+          "category": "质量问题",
+          "subCategory": "质量问题"
+        }
+      ]
+    }
+  }
+}

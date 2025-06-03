@@ -1,0 +1,18 @@
+{
+  "RuleSet": {
+    "rules": {
+      "dslRule": [
+        {
+          "language": "java",
+          "id": "CF5B5EA7-2C6C-4E5B-BB70-68B7353937DB",
+          "checker": "SecH_0 copy",
+          "checkerId": "06a2a36ea81545e8968e5335287e1de0",
+          "dsl": "functionDeclaration functiondeclaration_1 where\n\tand(\n\t\tfunctiondeclaration_1.body contain castExpression castexpression_1,\n\t\tfunctiondeclaration_1.name == \"equals\",\n\t\tnot(\n\t\t\tfunctiondeclaration_1.body contain instanceofExpression\n\t\t)\n\t);\n",
+          "description": "规则描述信息，需用户修改",
+          "category": "质量问题",
+          "subCategory": "质量问题"
+        }
+      ]
+    }
+  }
+}

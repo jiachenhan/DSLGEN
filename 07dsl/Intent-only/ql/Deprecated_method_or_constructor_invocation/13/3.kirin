@@ -1,0 +1,6 @@
+objectCreationExpression oc where
+    and(
+        oc.name == "Integer",
+        oc.arguments[0].value == 0,
+        not(oc.arguments[0].type.name == "java.lang.Integer")
+    );

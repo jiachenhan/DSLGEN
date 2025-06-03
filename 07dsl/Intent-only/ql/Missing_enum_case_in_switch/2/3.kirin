@@ -1,0 +1,8 @@
+switchStatement sw where
+    sw.expression.type is enumType,
+    not(
+        sw.cases contain caseClause cc where
+            cc.expression is defaultCase
+    ),
+    enumType et where
+        et.constants.size() != sw.cases.size();

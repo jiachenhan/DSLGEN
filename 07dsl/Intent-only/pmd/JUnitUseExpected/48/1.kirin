@@ -1,0 +1,12 @@
+methodDeclaration md where
+    and(
+        md.annotations contain annotation where
+            and(
+                annotation.name == "Test",
+                not(annotation.arguments contain arg where arg.name == "expected")
+            ),
+        md contain tryStatement ts where
+            ts contain catchClause,
+        md contain functionCall fc where
+            fc.name == "fail"
+    );

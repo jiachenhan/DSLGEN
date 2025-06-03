@@ -1,0 +1,10 @@
+methodDeclaration md where
+    and(
+        md.name == "tearDown",
+        md.annotations contain annotation where
+            annotation.name == "AfterTest",
+        not(
+            md.annotations contain annotation where
+                annotation.name == "AfterClass"
+        )
+    );

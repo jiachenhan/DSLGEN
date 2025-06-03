@@ -1,0 +1,11 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md.contain tryCatchBlock,
+        not(
+            md.annotations contain annotation where
+                annotation.name == "Test" and
+                annotation.arguments contain arg where
+                    arg.name == "expected"
+        )
+    );

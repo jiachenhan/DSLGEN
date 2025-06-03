@@ -1,0 +1,86 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain synchronizedBlock synchronizedblock_1,
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*(?i)(lock|mutex|semaphore)"),
+not(functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain exceptionBlock exceptionblock_2 where and(
+exceptionblock_2.tryBlock contain ifBlock ifblock_2 where and(
+ifblock_2.thenBlock contain functionCall functioncall_1 where and(
+functioncall_1.name == "destroy",
+functioncall_1.base.name == "extensionDirector"
+),
+ifblock_2.condition.lhs.name == "extensionDirector",
+ifblock_2.condition.operator == "!="
+),
+exceptionblock_2.catchBlocks contain catchBlock catchblock_1 where and(
+catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.type.name match ".*Throwable",
+alias_1.name == "t"
+),
+catchblock_1.body contain functionCall functioncall_5 where and(
+functioncall_5.arguments contain alias_2 where alias_2.name == "CONFIG_UNABLE_DESTROY_MODEL",
+functioncall_5.arguments contain alias_3 where alias_3.name == "t",
+functioncall_5.base.name == "LOGGER",
+functioncall_5.arguments contain alias_4 where and(
+alias_4 is literal,
+alias_4.value == "Error happened when destroying ScopeModel."
+),
+functioncall_5.arguments contain alias_5 where and(
+alias_5 is literal,
+alias_5.value == ""
+),
+functioncall_5.name == "error",
+functioncall_5.arguments contain alias_9 where and(
+alias_9 is literal,
+alias_9.value == ""
+)
+)
+),
+exceptionblock_2.tryBlock contain forEachBlock foreachblock_1 where and(
+foreachblock_1.body contain functionCall functioncall_2 where and(
+functioncall_2.name == "removeClassLoader",
+functioncall_2.arguments contain alias_10 where alias_10.name == "classLoader"
+),
+foreachblock_1.variable.type.name match ".*ClassLoader",
+foreachblock_1.variable.name == "classLoader",
+foreachblock_1.iterable.name == "copyOfClassLoaders"
+),
+exceptionblock_2.tryBlock contain valueDeclaration valuedeclaration_2 where and(
+valuedeclaration_2.type.name match ".*HashSet",
+valuedeclaration_2.name == "copyOfClassLoaders",
+valuedeclaration_2.initializer.type.name match ".*HashSet",
+valuedeclaration_2.initializer.arguments contain alias_7 where alias_7.name == "classLoaders",
+valuedeclaration_2.type.generics contain alias_11 where alias_11.name match ".*ClassLoader"
+),
+exceptionblock_2.tryBlock contain ifBlock ifblock_3 where and(
+ifblock_3.thenBlock contain functionCall functioncall_4 where and(
+functioncall_4.name == "destroy",
+functioncall_4.base.name == "beanFactory"
+),
+ifblock_3.condition.lhs.name == "beanFactory",
+ifblock_3.condition.operator == "!="
+),
+exceptionblock_2.tryBlock contain functionCall functioncall_3 where functioncall_3.name == "onDestroy"
+),
+ifblock_1.condition.base.name == "destroyed",
+ifblock_1.condition.arguments contain alias_6 where and(
+alias_6 is literal,
+alias_6.value == true
+),
+ifblock_1.condition.arguments contain alias_8 where and(
+alias_8 is literal,
+alias_8.value == false
+),
+ifblock_1.condition.name == "compareAndSet"
+),
+exceptionblock_1.finallyBlock contain functionCall functioncall_6 where and(
+functioncall_6.name == "unlock",
+functioncall_6.base.name == "lock"
+),
+exceptionblock_1.tryBlock contain functionCall functioncall_7 where and(
+functioncall_7.name == "lock",
+functioncall_7.base.name == "lock"
+)
+))
+);

@@ -1,0 +1,14 @@
+functionDeclaration functiondeclaration_1 where and(
+not(functiondeclaration_1 contain annotation annotation_1 where annotation_1.name == "Test"),
+not(functiondeclaration_1 contain annotation annotation_2 where and(
+annotation_2.annoMembers contain annoMember annomember_1 where and(
+annomember_1.name == "issue",
+annomember_1.annoValue.name == "SCHEMA_CHANGE_OPERATION_FAIL_ISSUE"
+),
+annotation_2.annoMembers contain annoMember annomember_2 where and(
+annomember_2.annoValue.name == "SCHEMA_CHANGE_OPERATION_FAIL_MATCH",
+annomember_2.name == "match"
+),
+annotation_2.name == "Flaky"
+))
+);

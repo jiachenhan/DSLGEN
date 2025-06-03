@@ -1,0 +1,11 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md.contain tryStatement ts where
+            ts.contain catchBlock cb where
+                cb.exceptionType.name == "NullPointerException",
+        not(
+            md.contain annotation an where
+                an.name == "Test"
+        )
+    );

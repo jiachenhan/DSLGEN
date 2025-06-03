@@ -1,0 +1,16 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md.contain tryStatement ts where
+            and(
+                ts.contain catchStatement cs where
+                    cs.exceptionType.name == "ParameterHasNoDistinctValueException",
+                not(
+                    md.contain functionCall fc where
+                        and(
+                            fc.name == "assertThrows",
+                            fc.arguments[0].type.name == "ParameterHasNoDistinctValueException.class"
+                        )
+                )
+            )
+    );

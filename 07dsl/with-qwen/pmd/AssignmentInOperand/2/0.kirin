@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.condition.rhs.lhs.operator == "=",
+not(ifblock_1 contain binaryOperation binaryoperation_1)
+);

@@ -1,0 +1,10 @@
+methodDeclaration md where
+    and(
+        md.name startWith "test",
+        md.annotations contain ann where
+            ann.name in ["Test", "RepeatedTest", "TestFactory", "TestTemplate", "ParameterizedTest"],
+        not(
+            md.annotations contain ann where
+                ann.name == "Ignore"
+        )
+    );

@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where not(binaryoperation_1 contain objectCreationExpression objectcreationexpression_1 where objectcreationexpression_1.type.name match ".*(?i).*InitialNode$"),
+functiondeclaration_1.body contain binaryOperation binaryoperation_2
+);

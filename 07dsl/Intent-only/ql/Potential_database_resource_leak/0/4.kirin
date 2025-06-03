@@ -1,0 +1,20 @@
+functionDeclaration fd where
+    and(
+        fd.name == "queryAllSchedule",
+        fd.parameters[0].type.name == "java.sql.Connection",
+        fd contain tryStatement ts where
+            and(
+                not(ts.resources.size() > 0),
+                ts.block contain variableDeclarationStatement vds where
+                    and(
+                        vds.type.name == "java.sql.ResultSet",
+                        vds.type.name == "java.sql.PreparedStatement"
+                    ),
+                ts.block contain functionCall fc where
+                    and(
+                        fc.name == "executeQuery",
+                        fc.base is VariableAccess where
+                            base.name == "pstmt"
+                    )
+            )
+    );

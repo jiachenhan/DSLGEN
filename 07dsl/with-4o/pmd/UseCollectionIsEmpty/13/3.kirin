@@ -1,0 +1,37 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain binaryOperation binaryoperation_1 where and(
+binaryoperation_1.lhs.base.name match "(?i).*WrapperList$",
+binaryoperation_1.lhs.name == "size",
+binaryoperation_1.rhs.value == 0,
+binaryoperation_1.operator == ">"
+),
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is lambdaExpression,
+alias_1.body contain ifBlock ifblock_1 where and(
+ifblock_1.thenBlock contain functionCall functioncall_2 where and(
+functioncall_2.arguments contain alias_2 where and(
+alias_2 is objectCreationExpression,
+alias_2.arguments contain alias_3 where and(
+alias_3 is functionCall,
+alias_3.name == "getOffset",
+alias_3.base.name == "wrapper"
+),
+alias_2.arguments contain alias_4 where alias_4.name == "flatFile",
+alias_2.type.name match ".*MessageCacheKey"
+),
+functioncall_2.name == "invalidate",
+functioncall_2.base.name == "readAheadCache"
+),
+ifblock_1.condition.rhs.base.name == "flatFile",
+ifblock_1.condition.operator == ">=",
+ifblock_1.condition.lhs.base.name == "wrapper",
+ifblock_1.condition.rhs.name == "getActiveGroupCount",
+ifblock_1.condition.lhs.name == "incrementAndGet"
+),
+alias_1.parameters contain alias_5 where alias_5.name == "wrapper"
+),
+functioncall_1.base.name == "resultWrapperList",
+functioncall_1.name == "forEach"
+))
+);

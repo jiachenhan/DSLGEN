@@ -1,0 +1,11 @@
+objectCreationExpression oc where
+    oc in functionCall fc where
+        and(
+            fc.name == "forClass",
+            fc.arguments[0] arg where
+                arg is functionCall fc2 where
+                    and(
+                        fc2.name == "getClass",
+                        fc2.base is objectCreationExpression
+                    )
+        );

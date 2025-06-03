@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where and(
+valuedeclaration_1.initializer.type.name match ".*(?i).*(Reader|Stream)$",
+valuedeclaration_1.type.name match ".*(?i).*(Reader|Stream)$"
+),
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_2 where valuedeclaration_2.type.name match ".*(InputStream|BufferedReader|.*Stream|.*Reader)"
+);

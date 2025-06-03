@@ -1,0 +1,32 @@
+functionDeclaration fd where
+    and(
+        fd.name == "toInfo",
+        fd.contain variableAccess va where
+            and(
+                va.name == "dataSource",
+                va in ifStatement ifs where
+                    and(
+                        ifs.condition contain binaryExpression be where
+                            and(
+                                be.operator == "&&",
+                                be.left is variableAccess where
+                                    and(
+                                        name == "dataSource",
+                                        not(
+                                            be.left is nullCheck
+                                        )
+                                    )
+                            )
+                        ),
+                        ifs.contain throwStatement
+                    )
+            ),
+        fd.contain methodCall mc where
+            and(
+                mc.base is variableAccess where
+                    name == "dataSource",
+                not(
+                    mc in ifStatement
+                )
+            )
+    );

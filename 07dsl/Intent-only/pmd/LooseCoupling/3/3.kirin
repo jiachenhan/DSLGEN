@@ -1,0 +1,8 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "ArrayList",
+        not(
+            oce in variableDeclaration where
+                variableDeclaration.type.name == "List"
+        )
+    );

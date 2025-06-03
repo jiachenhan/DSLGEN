@@ -1,0 +1,8 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain switchBlock switchblock_1 where and(
+not(switchblock_1 contain caseStatement casestatement_1 where casestatement_1.caseExpression.name match "(?i)(string|text|varchar|char)"),
+not(switchblock_1 contain caseStatement casestatement_2),
+not(switchblock_1 contain caseStatement casestatement_3 where casestatement_3.caseExpression.name == "DATE"),
+not(switchblock_1 contain caseStatement casestatement_4 where casestatement_4.caseExpression.name == "TIMESTAMP"),
+not(switchblock_1 contain defaultStatement),
+not(switchblock_1 contain breakStatement breakstatement_1)
+);

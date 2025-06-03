@@ -1,0 +1,31 @@
+functionCall fc where
+    and(
+        fc.name == "size",
+        fc.enclosingFunction ef where
+            ef contain ifStatement ifs where
+                or(
+                    ifs.condition contain fc where
+                        or(
+                            fc.parent is BinaryExpression where
+                                and(
+                                    fc.parent.operator == "==",
+                                    fc.parent.rightOperand == 0
+                                ),
+                            fc.parent is BinaryExpression where
+                                and(
+                                    fc.parent.operator == "!=",
+                                    fc.parent.rightOperand == 0
+                                ),
+                            fc.parent is BinaryExpression where
+                                and(
+                                    fc.parent.operator == ">",
+                                    fc.parent.rightOperand == 0
+                                ),
+                            fc.parent is BinaryExpression where
+                                and(
+                                    fc.parent.operator == "<",
+                                    fc.parent.rightOperand == 1
+                                )
+                        )
+                )
+    );

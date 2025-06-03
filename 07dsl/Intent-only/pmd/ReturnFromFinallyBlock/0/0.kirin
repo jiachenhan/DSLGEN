@@ -1,0 +1,4 @@
+functionDeclaration fd where
+    fd contain tryStatement ts where
+        ts contain finallyBlock fb where
+            fb contain returnStatement;

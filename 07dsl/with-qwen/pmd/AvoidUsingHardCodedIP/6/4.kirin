@@ -1,0 +1,14 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain literal literal_1 where literal_1.value match "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b",
+not(functiondeclaration_1.body contain valueDeclaration valuedeclaration_1),
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where alias_1.name match "(?i).*audit(info)?",
+functioncall_1.arguments contain alias_2 where and(
+alias_2 is functionCall,
+alias_2.base.name == "auditInfoCapture",
+alias_2.name == "getValue"
+),
+functioncall_1.name == "assertEquals",
+functioncall_1.base.name == "Assert"
+))
+);

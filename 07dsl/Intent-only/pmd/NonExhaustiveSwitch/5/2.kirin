@@ -1,0 +1,2 @@
+switchStatement sw where
+    not(sw.cases contain caseLabel where caseLabel.name == "default");

@@ -1,0 +1,7 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.catchBlocks contain catchBlock catchblock_1 where catchblock_1.parameters contain alias_1 where and(
+alias_1 is valueDeclaration,
+alias_1.type.name match ".*IllegalArgumentException"
+),
+exceptionblock_1.tryBlock contain functionCall functioncall_1 where functioncall_1.name match "(fail|assertFail|expectFail)"
+);

@@ -1,0 +1,11 @@
+functionDeclaration fd where
+    and(
+        fd.isOverride == false,
+        fd.enclosingClass contain methodDeclaration md where
+            and(
+                md.name == fd.name,
+                md.parameters.size() == fd.parameters.size(),
+                md.parameters* param where
+                    fd.parameters[param.argumentIndex].type.name == param.type.name
+            )
+    );

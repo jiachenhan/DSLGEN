@@ -1,0 +1,6 @@
+functionDeclaration fd where
+    and(
+        fd.name startWith "test",
+        fd.annotations contain ann where
+            ann.name != "Test"
+    );

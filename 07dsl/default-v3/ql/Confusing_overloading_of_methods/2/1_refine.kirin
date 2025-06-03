@@ -1,0 +1,9 @@
+functionDeclaration functiondeclaration_1 where
+	and(
+		functiondeclaration_1.body contain functionCall functioncall_1 where
+			functioncall_1.name match "round[a-zA-Z]+",
+		functiondeclaration_1.parameters contain alias_1 where
+			alias_1 is valueDeclaration,
+		functiondeclaration_1.parameters contain alias_2 where
+			alias_2 is valueDeclaration
+	);

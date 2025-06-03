@@ -1,0 +1,10 @@
+functionDeclaration functiondeclaration_1 where functiondeclaration_1.body contain exceptionBlock exceptionblock_1 where and(
+exceptionblock_1.tryBlock contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is literal,
+alias_1.value match "(?i).*no exception thrown.*"
+),
+functioncall_1.name match "(fail|assertFail|expectFailure)"
+),
+exceptionblock_1.catchBlocks contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*TimeoutException"
+);

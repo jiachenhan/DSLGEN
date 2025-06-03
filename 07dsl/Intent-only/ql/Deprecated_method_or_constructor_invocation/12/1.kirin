@@ -1,0 +1,7 @@
+functionCall fc where
+    and(
+        fc.name == "assertTrue",
+        fc.arguments[0] arg where
+            arg is functionCall,
+            arg.name == "instanceof"
+    );

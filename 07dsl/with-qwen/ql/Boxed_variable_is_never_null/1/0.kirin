@@ -1,0 +1,21 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain valueDeclaration valuedeclaration_1 where valuedeclaration_1.type.name match ".*(?i)(Boolean|Integer|Double|Float|Long|Short|Byte)",
+not(functiondeclaration_1.body contain functionCall functioncall_1 where and(
+functioncall_1.arguments contain alias_1 where and(
+alias_1 is functionCall,
+alias_1.name == "build",
+alias_1.base.base.base.base.base.base.name == "ActionEntityEvent",
+alias_1.base.base.base.base.arguments contain alias_2 where alias_2.name == "tenantId",
+alias_1.base.base.base.base.base.name == "builder",
+alias_1.base.base.base.name == "edgeId",
+alias_1.base.name == "actionType",
+alias_1.base.base.base.base.name == "tenantId",
+alias_1.base.base.name == "entityId",
+alias_1.base.arguments contain alias_3 where alias_3.name == "ASSIGNED_TO_EDGE",
+alias_1.base.base.arguments contain alias_4 where alias_4.name == "entityViewId",
+alias_1.base.base.base.arguments contain alias_5 where alias_5.name == "edgeId"
+),
+functioncall_1.name == "publishEvent",
+functioncall_1.base.name == "eventPublisher"
+))
+);

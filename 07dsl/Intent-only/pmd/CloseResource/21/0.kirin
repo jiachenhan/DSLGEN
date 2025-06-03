@@ -1,0 +1,7 @@
+objectCreationExpression oce where
+    and(
+        oce.name == "Statement",
+        not(
+            oce in tryWithResources
+        )
+    );

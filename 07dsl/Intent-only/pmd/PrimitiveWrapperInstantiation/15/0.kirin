@@ -1,0 +1,5 @@
+objectCreationExpression oc where
+    or(
+        oc.name == "Long",
+        oc.name == "Integer"
+    );

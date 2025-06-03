@@ -1,0 +1,22 @@
+functionCall fc where
+    and(
+        fc.base.name match "log.*",
+        or(
+            fc.name == "debug",
+            fc.name == "info",
+            fc.name == "warn",
+            fc.name == "error",
+            fc.name == "trace"
+        ),
+        not(
+            fc in ifStatement where
+                and(
+                    fc.enclosingFunction ef where
+                        ef contain functionCall guard where
+                            and(
+                                guard.base.name match "log.*",
+                                guard.name == "isDebugEnabled"
+                            )
+                )
+        )
+    );

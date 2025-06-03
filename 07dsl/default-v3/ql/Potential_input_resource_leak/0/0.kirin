@@ -1,0 +1,2 @@
+functionDeclaration functiondeclaration_1 where
+	functiondeclaration_1.body contain valueDeclaration valuedeclaration_1;

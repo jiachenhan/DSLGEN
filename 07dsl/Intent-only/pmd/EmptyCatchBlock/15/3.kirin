@@ -1,0 +1,2 @@
+catchBlock cb where
+    cb.statements.size() == 0;

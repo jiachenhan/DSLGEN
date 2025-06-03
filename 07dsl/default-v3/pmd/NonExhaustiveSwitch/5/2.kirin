@@ -1,0 +1,16 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.body contain switchBlock switchblock_1 where not(switchblock_1 contain defaultStatement),
+not(functiondeclaration_1 contain annotation annotation_1 where and(
+annotation_1.annoMembers contain initArrayExpression initarrayexpression_1 where and(
+initarrayexpression_1.elements contain alias_1 where and(
+alias_1 is literal,
+alias_1.value == "squid:S6541"
+),
+initarrayexpression_1.elements contain alias_2 where and(
+alias_2 is literal,
+alias_2.value == "squid:S3776"
+)
+),
+annotation_1.name == "SuppressWarnings"
+))
+);

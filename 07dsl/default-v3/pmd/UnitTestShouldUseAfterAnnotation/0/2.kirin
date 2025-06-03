@@ -1,0 +1,4 @@
+functionDeclaration functiondeclaration_1 where and(
+functiondeclaration_1.name match "(?i).*(cleanup|teardown|finalize|close|shutdown)$",
+not(functiondeclaration_1 contain annotation annotation_1 where annotation_1.name == "AfterAll")
+);
