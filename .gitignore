@@ -18,9 +18,9 @@ target/
 02pattern-info/
 03graph/
 04patch/
-06config/
-07dsl/
-artifacts/
+#06config/
+#07dsl/
+#artifacts/
 
 # python
 **/__pycache__/
