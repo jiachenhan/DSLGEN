@@ -1,10 +1,9 @@
 # DSLGEN: Extracting Bug Patterns from Bug-Fix Examples
 
 ## 📝 Overview
-This repository contains the implementation of **DSLGEN**,  
-a framework for automatically constructing generalizable bug patterns from concrete buggy-fix code examples.  
-The extracted patterns are expressed in a domain-specific language (DSL),  
-enabling precise and compact pattern-based analysis.
+This repository contains the implementation of **DSLGEN**, 
+a framework for automatically constructing generalizable bug patterns from concrete buggy-fix code examples.
+The extracted patterns are expressed in a domain-specific language (DSL), enabling precise and compact pattern-based analysis.
 
 <p align="center">
   <img src="09appendix/overview.svg" width="700" alt="System Overview">
@@ -19,7 +18,7 @@ DSLGEN/
 ├── 06config/
 │   └── config.yml          # Configuration file
 ├── 07dsl/                  # Extracted DSL schema
-├── 08example/              # Example input-output cases
+├── 08example/              # Example input bug-fix case
 ├── 09appendix/             # Supplementary materials (e.g., User Study)
 │
 ├── ModifiedMetaModel/      # Java implementation of core framework
